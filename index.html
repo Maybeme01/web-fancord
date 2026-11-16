@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FanCord — تعديل ديسكورد الأقوى بتعريب كامل وإضافات حصرية</title>
+  <meta name="description" content="موقع FanCord الرسمي: تعديل حديث وخفيف لتطبيق ديسكورد مع دعم كامل للغة العربية (RTL) وحزمة إضافات FanPlugins الحصرية وأكثر من 490 إضافة جاهزة.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <meta property="og:title" content="FanCord — Modern Discord Client Mod">
+  <meta property="og:description" content="تعديل ديسكورد الحديث والخفيف مع أول دعم أصيل للغة العربية وإضافات حصرية لن تجدها في أي مكان آخر.">
+  <meta property="og:image" content="assets/logo.png">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Cairo (Arabic) & Plus Jakarta Sans (English) & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- Background Interactive Particles & Ambient Lighting -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand">
+        <img src="assets/logo.png" alt="FanCord Logo" class="brand-logo">
+        <span class="brand-text">FanCord</span>
+        <span class="brand-badge">v3.0</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#features" class="nav-link" data-i18n="nav.features">المميزات</a>
+        <a href="#exclusive" class="nav-link" data-i18n="nav.exclusive">الإضافات الحصرية</a>
+        <a href="#catalog" class="nav-link" data-i18n="nav.plugins">دليل الإضافات</a>
+        <a href="#install" class="nav-link" data-i18n="nav.install">طريقة التثبيت</a>
+        <a href="#compare" class="nav-link" data-i18n="nav.compare">المقارنة</a>
+        <a href="#faq" class="nav-link" data-i18n="nav.faq">الأسئلة الشائعة</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-lang" id="btn-lang" title="Toggle Language">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="lang-text">English</span>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge-pill">
+          <span>✨</span>
+          <span data-i18n="hero.badge">الإصدار الأحدث لعام 2026 • أداء فائق وسرعة قصوى</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="gradient-text" data-i18n="hero.titleHighlight">FanCord</span><br>
+          <span data-i18n="hero.titleSuffix">تعديل ديسكورد الأقوى بتعريب كامل وإضافات حصرية</span>
+        </h1>
+        <p class="hero-desc" data-i18n="hero.description">
+          تعديل حديث، فائق السرعة، وخفيف الموارد لتطبيق ديسكورد مع دعم كامل للغة العربية (RTL) وحزمة حصرية من إضافات FanPlugins المطورة لتمنحك أفضل تجربة ممكنة.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#install" class="btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+            <span data-i18n="hero.btnInstall">تثبيت فوري الآن</span>
+          </a>
+          <a href="#catalog" class="btn-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span data-i18n="hero.btnBrowse">استكشاف الإضافات (+490)</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-value">+490</span>
+            <span class="stat-label" data-i18n="hero.stats.totalPlugins">إضافة متكاملة</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">9</span>
+            <span class="stat-label" data-i18n="hero.stats.exclusivePlugins">إضافات حصرية خاصة</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">100%</span>
+            <span class="stat-label" data-i18n="hero.stats.arabicSupport">دعم عربي أصيل</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">0ms</span>
+            <span class="stat-label" data-i18n="hero.stats.resourceUsage">أسرع استجابة وأخف أداء</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual / Live Discord Client Mockup -->
+      <div class="hero-visual" id="mockup-container">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill" data-i18n="features.badge">لماذا تختار FanCord؟</div>
+        <h2 class="section-title" data-i18n="features.title">مميزات صُنعت لتغيير تجربتك في ديسكورد</h2>
+        <p class="section-subtitle" data-i18n="features.subtitle">
+          كل ما تحتاجه من سرعة فائقة، أمان متقدم، تعريب حقيقي، وتخصيص لا نهائي.
+        </p>
+      </div>
+
+      <div class="features-grid" id="features-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Exclusive FanPlugins Section -->
+  <section class="section exclusive-section" id="exclusive">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill vip" data-i18n="exclusive.badge">إضافات FanCord الحصرية • Exclusive FanPlugins</div>
+        <h2 class="section-title" data-i18n="exclusive.title">إضافات حصرية خاصة بـ FanCord</h2>
+        <p class="section-subtitle" data-i18n="exclusive.subtitle">
+          مجموعة أدوات مبتكرة تم تطويرها وإدراجها حصرياً لمستخدمي FanCord، لا تتوفر في أي عميل ديسكورد آخر.
+        </p>
+      </div>
+
+      <div class="exclusive-grid" id="exclusive-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- All Plugins Catalog Section -->
+  <section class="section" id="catalog">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill" data-i18n="catalog.badge">المكتبة الكاملة للإضافات</div>
+        <h2 class="section-title" data-i18n="catalog.title">دليل جميع إضافات FanCord (أكثر من 490 إضافة)</h2>
+        <p class="section-subtitle" data-i18n="catalog.subtitle">
+          ابحث في كافة الإضافات وتعرف على وظيفة كل إضافة باختصار، وصنّفها حسب الفئة بنقرة واحدة.
+        </p>
+      </div>
+
+      <div class="catalog-controls">
+        <!-- Search Bar -->
+        <div class="search-box-wrapper">
+          <span class="search-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </span>
+          <input type="text" id="search-input" class="search-input" placeholder="ابحث عن أي إضافة بالاسم أو الوصف (عربي / English)...">
+          <button id="search-clear" class="search-clear" title="Clear Search">✕</button>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="category-pills" id="category-pills">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+        <!-- Status Bar -->
+        <div class="catalog-status">
+          <div id="catalog-count">يتم عرض 494 من أصل 494 إضافة</div>
+          <div id="catalog-tip" style="font-size: 0.85rem; color: var(--text-dim);">💡 اضغط على زر النسخ بجانب أي إضافة لنسخ اسمها فوراً</div>
+        </div>
+      </div>
+
+      <!-- Plugins Grid -->
+      <div class="plugins-grid" id="plugins-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Installation Terminal Section -->
+  <section class="section" id="install">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill" data-i18n="install.badge">سهولة وسرعة التثبيت</div>
+        <h2 class="section-title" data-i18n="install.title">ابدأ استخدام FanCord في ثوانٍ</h2>
+        <p class="section-subtitle" data-i18n="install.subtitle">
+          ثبّت FanCord تلقائياً عبر سطر الأوامر أو ابنِه من المصدر لنظام Windows أو macOS أو Linux.
+        </p>
+      </div>
+
+      <div class="install-container">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-tabs">
+              <button class="term-tab active" data-tab="quick" data-i18n="install.tabs.quick">⚡ التثبيت السريع (Inject)</button>
+              <button class="term-tab" data-tab="stable" data-i18n="install.tabs.stable">🟢 Discord Stable</button>
+              <button class="term-tab" data-tab="canary" data-i18n="install.tabs.canary">🟡 Discord Canary</button>
+              <button class="term-tab" data-tab="source" data-i18n="install.tabs.source">🛠️ البناء من المصدر</button>
+            </div>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <code class="terminal-code" id="terminal-code">pnpm inject</code>
+              <button class="btn-copy-term" id="btn-copy-term">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span data-i18n="install.copyCommand">نسخ الأمر</span>
+              </button>
+            </div>
+            <p class="terminal-explanation" id="terminal-note">
+              يقوم بحقن FanCord تلقائياً في عميل ديسكورد المثبت على جهازك بنقرة زر واحدة.
+            </p>
+          </div>
+        </div>
+
+        <!-- Prerequisites Box -->
+        <div class="prereq-box">
+          <h4 class="prereq-title" data-i18n="install.prereqTitle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            المتطلبات الأساسية:
+          </h4>
+          <div class="prereq-grid">
+            <div class="prereq-card">
+              <span class="prereq-icon">🟢</span>
+              <span class="prereq-text" data-i18n="install.prereqNode">Node.js الإصدار 18 أو أحدث</span>
+            </div>
+            <div class="prereq-card">
+              <span class="prereq-icon">📦</span>
+              <span class="prereq-text" data-i18n="install.prereqPnpm">مدير الحزم pnpm (npm i -g pnpm)</span>
+            </div>
+            <div class="prereq-card">
+              <span class="prereq-icon">⚡</span>
+              <span class="prereq-text" data-i18n="install.prereqGit">برنامج Git لاستنساخ الحزم</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Section -->
+  <section class="section" id="compare">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill" data-i18n="compare.badge">مقارنة شاملة</div>
+        <h2 class="section-title" data-i18n="compare.title">قارن بين FanCord والبدائل الأخرى</h2>
+        <p class="section-subtitle" data-i18n="compare.subtitle">
+          شاهد الفرق الواضح في دعم اللغة العربية، السرعة، والإضافات الحصرية.
+        </p>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th data-i18n="compare.featureCol">الميزة / القدرة</th>
+              <th class="highlight-col" data-i18n="compare.fanCordCol">FanCord (الأحدث)</th>
+              <th data-i18n="compare.vencordCol">Vencord الأصلي</th>
+              <th data-i18n="compare.regularCol">ديسكورد العادي</th>
+            </tr>
+          </thead>
+          <tbody id="compare-table-body">
+            <!-- Rendered dynamically by app.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill" data-i18n="faq.badge">الأسئلة الشائعة</div>
+        <h2 class="section-title" data-i18n="faq.title">كل ما قد ترغب في معرفته</h2>
+        <p class="section-subtitle" data-i18n="faq.subtitle">
+          إجابات شافية وواضحة على أكثر الأسئلة تكراراً حول FanCord.
+        </p>
+      </div>
+
+      <div class="faq-list" id="faq-list">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid" style="grid-template-columns: 2fr 1fr;">
+        <div>
+          <a href="#" class="brand">
+            <img src="assets/logo.png" alt="FanCord Logo" class="brand-logo">
+            <span class="brand-text">FanCord</span>
+            <span class="brand-badge">v3.0</span>
+          </a>
+          <p class="footer-brand-desc" data-i18n="footer.desc">
+            تعديل ديسكورد الحديث والخفيف مع أول دعم أصيل للغة العربية وإضافات حصرية صُنعت خصيصاً للمستخدمين.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title" data-i18n="footer.linksTitle">روابط سريعة</h4>
+          <ul class="footer-links">
+            <li><a href="#features" class="footer-link" data-i18n="nav.features">المميزات</a></li>
+            <li><a href="#exclusive" class="footer-link" data-i18n="nav.exclusive">الإضافات الحصرية</a></li>
+            <li><a href="#catalog" class="footer-link" data-i18n="nav.plugins">دليل الإضافات</a></li>
+            <li><a href="#install" class="footer-link" data-i18n="nav.install">طريقة التثبيت</a></li>
+            <li><a href="#compare" class="footer-link" data-i18n="nav.compare">المقارنة</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div data-i18n="footer.allRights">
+          جميع الحقوق محفوظة © 2026 FanCord
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal for Plugin Details -->
+  <div class="modal-overlay" id="plugin-modal">
+    <!-- Content injected dynamically by app.js -->
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="data/plugins.js"></script>
+  <script src="scripts/i18n.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
