@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 400" width="100%" height="100%" dir="rtl">
+  <defs>
+    <linearGradient id="vp-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16171a"/>
+      <stop offset="100%" stop-color="#0f1012"/>
+    </linearGradient>
+  </defs>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&amp;family=JetBrains+Mono:wght@700&amp;display=swap');
+    text { font-family: 'Cairo', system-ui, -apple-system, sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .title { font-size: 15px; font-weight: 800; fill: #ffffff; }
+    .sub { font-size: 11.5px; font-weight: 600; fill: #949ba4; }
+    .label { font-size: 13px; font-weight: 700; fill: #dbdee1; }
+    .btn-lbl { font-size: 12.5px; font-weight: 800; fill: #ffffff; }
+  </style>
+
+
+  <rect width="620" height="400" rx="12" fill="url(#vp-bg)" stroke="#2b2d31" stroke-width="1.5"/>
+
+  <!-- Window Header -->
+  <g transform="translate(20, 24)">
+    <circle cx="10" cy="8" r="5" fill="#ed4245"/>
+    <circle cx="26" cy="8" r="5" fill="#faa81a"/>
+    <circle cx="42" cy="8" r="5" fill="#3ba55d"/>
+    <text x="64" y="13" class="title">📡 كاشف بنق الصوت · VoicePing Monitor</text>
+    <rect x="420" y="-4" width="160" height="26" rx="13" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="1"/>
+    <circle cx="434" cy="9" r="4" fill="#22c55e"/>
+    <text x="504" y="13" text-anchor="middle" fill="#4ade80" font-size="11px" font-weight="800">مراقبة اتصال حية 60fps</text>
+  </g>
+
+  <!-- Left Side: Voice Room Live View (Renamed room & members) -->
+  <g transform="translate(20, 60)">
+    <!-- Voice Channel Container -->
+    <rect width="285" height="320" rx="8" fill="#1e1f22" stroke="#2b2d31" stroke-width="1"/>
+    
+    <!-- Channel Header -->
+    <rect width="285" height="46" rx="8" fill="#232428"/>
+    <path d="M 0 46 L 285 46" stroke="#2b2d31" stroke-width="1"/>
+    <text x="14" y="22" fill="#23a55a" font-size="14px">🔊</text>
+    <text x="36" y="22" fill="#ffffff" font-size="12.5px" font-weight="800">مجلس FanCord الصوتي</text>
+    <text x="272" y="22" text-anchor="end" class="mono" fill="#23a55a" font-size="11px" font-weight="700">03:42:18</text>
+    <text x="16" y="38" fill="#949ba4" font-size="9.5px" font-weight="600">دردشة وسوالف مجتمع FanCord 🌟</text>
+
+    <!-- Member 1: سلطان (Ping 24) -->
+    <g transform="translate(10, 54)">
+      <rect width="265" height="46" rx="6" fill="#2b2d31" opacity="0.6"/>
+      <text x="12" y="26" class="mono" fill="#23a55a" font-size="14px" font-weight="900">24</text>
+      <circle cx="48" cy="23" r="14" fill="#5865f2"/>
+      <text x="48" y="27" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="800">س</text>
+      <text x="70" y="22" fill="#ffffff" font-size="11.5px" font-weight="700">سلطان | Sultan</text>
+      <text x="156" y="22" fill="#f59e0b" font-size="11px">👑</text>
+      <text x="252" y="26" text-anchor="end" fill="#80848e" font-size="12px">🔇</text>
+      <text x="12" y="40" class="mono" fill="#23a55a" font-size="8px">ms • loss: 0%</text>
+    </g>
+
+    <!-- Member 2: عبدالله (Speaking with glowing ring - Ping 36) -->
+    <g transform="translate(10, 106)">
+      <rect width="265" height="46" rx="6" fill="#2b2d31" opacity="0.9" stroke="rgba(35,165,90,0.5)" stroke-width="1"/>
+      <text x="12" y="26" class="mono" fill="#23a55a" font-size="14px" font-weight="900">36</text>
+      <circle cx="48" cy="23" r="15" fill="none" stroke="#23a55a" stroke-width="2"/>
+      <circle cx="48" cy="23" r="13" fill="#eb459e"/>
+      <text x="48" y="27" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="800">ع</text>
+      <text x="70" y="22" fill="#ffffff" font-size="11.5px" font-weight="700">عبدالله | Abdullah</text>
+      <text x="252" y="26" text-anchor="end" fill="#23a55a" font-size="12px">🎙️</text>
+      <text x="12" y="40" class="mono" fill="#23a55a" font-size="8px">ms • loss: 0%</text>
+    </g>
+
+    <!-- Member 3: فهد (Streaming Live - Ping 42) -->
+    <g transform="translate(10, 158)">
+      <rect width="265" height="46" rx="6" fill="#2b2d31" opacity="0.6"/>
+      <text x="12" y="26" class="mono" fill="#23a55a" font-size="14px" font-weight="900">42</text>
+      <circle cx="48" cy="23" r="14" fill="#8b5cf6"/>
+      <text x="48" y="27" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="800">ف</text>
+      <text x="70" y="22" fill="#ffffff" font-size="11.5px" font-weight="700">فهد | Fahad</text>
+      <rect x="146" y="13" width="38" height="16" rx="3" fill="rgba(88,101,242,0.3)"/>
+      <text x="165" y="24" text-anchor="middle" fill="#a5b4fc" font-size="8.5px" font-weight="800">بث LIVE</text>
+      <text x="12" y="40" class="mono" fill="#23a55a" font-size="8px">ms • loss: 0%</text>
+    </g>
+
+    <!-- Member 4: سعود (High Ping Warning - Ping 118) -->
+    <g transform="translate(10, 210)">
+      <rect width="265" height="46" rx="6" fill="#2b2d31" opacity="0.6" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+      <text x="12" y="26" class="mono" fill="#f59e0b" font-size="14px" font-weight="900">118</text>
+      <circle cx="48" cy="23" r="14" fill="#f97316"/>
+      <text x="48" y="27" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="800">س</text>
+      <text x="70" y="22" fill="#ffffff" font-size="11.5px" font-weight="700">سعود | Saud</text>
+      <rect x="144" y="13" width="46" height="16" rx="3" fill="rgba(245,158,11,0.2)"/>
+      <text x="167" y="24" text-anchor="middle" fill="#f59e0b" font-size="8.5px" font-weight="700">بنق مرتفع</text>
+      <text x="12" y="40" class="mono" fill="#f59e0b" font-size="8px">ms • loss: 1.2%</text>
+    </g>
+
+    <!-- Member 5: خالد (Ping 28) -->
+    <g transform="translate(10, 262)">
+      <rect width="265" height="46" rx="6" fill="#2b2d31" opacity="0.4"/>
+      <text x="12" y="26" class="mono" fill="#23a55a" font-size="14px" font-weight="900">28</text>
+      <circle cx="48" cy="23" r="14" fill="#06b6d4"/>
+      <text x="48" y="27" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="800">خ</text>
+      <text x="70" y="22" fill="#ffffff" font-size="11.5px" font-weight="700">خالد | Khalid</text>
+      <text x="252" y="26" text-anchor="end" fill="#80848e" font-size="12px">🎧</text>
+      <text x="12" y="40" class="mono" fill="#23a55a" font-size="8px">ms • loss: 0%</text>
+    </g>
+  </g>
+
+  <!-- Right Side: VoicePing Settings (from Screenshot 2) -->
+  <g transform="translate(315, 60)">
+    <rect width="285" height="320" rx="8" fill="#1e1f22" stroke="#2b2d31" stroke-width="1"/>
+    
+    <!-- Settings Header -->
+    <g transform="translate(15, 20)">
+      <text x="0" y="0" fill="#ffffff" font-size="14px" font-weight="800">إعدادات VoicePing</text>
+      <rect x="140" y="-12" width="45" height="18" rx="4" fill="#2b2d31"/>
+      <text x="162" y="1" text-anchor="middle" fill="#949ba4" font-size="9.5px" font-weight="700">Voice</text>
+      <rect x="192" y="-12" width="48" height="18" rx="4" fill="#2b2d31"/>
+      <text x="216" y="1" text-anchor="middle" fill="#949ba4" font-size="9.5px" font-weight="700">Utility</text>
+      <text x="0" y="18" fill="#949ba4" font-size="10.5px">عرض بنق الجميع في الروم الصوتي مع التفاصيل</text>
+    </g>
+
+    <!-- User Ping Display Mode -->
+    <g transform="translate(15, 64)">
+      <text x="0" y="0" fill="#dbdee1" font-size="12px" font-weight="700">User Ping (نمط العرض في الروم)</text>
+      <rect x="0" y="8" width="255" height="32" rx="6" fill="#2b2d31" stroke="#5865f2" stroke-width="1.2"/>
+      <text x="12" y="28" fill="#ffffff" font-size="11.5px" font-weight="700">رقم البنق بجانب الاسم (Number)</text>
+      <text x="240" y="28" text-anchor="end" fill="#949ba4" font-size="11px">▾</text>
+    </g>
+
+    <!-- Alerts Toggle Switch -->
+    <g transform="translate(15, 126)">
+      <text x="0" y="0" fill="#dbdee1" font-size="12px" font-weight="700">Alerts (تنبيهات جودة الاتصال)</text>
+      <text x="0" y="16" fill="#949ba4" font-size="10px">تنبيهي فوراً عند ضعف الاتصال أو ضياع الصوت</text>
+      <rect x="205" y="-4" width="50" height="24" rx="12" fill="#5865f2"/>
+      <circle cx="241" cy="8" r="9" fill="#ffffff"/>
+    </g>
+
+    <!-- High Ping Slider (at 120ms) -->
+    <g transform="translate(15, 178)">
+      <text x="0" y="0" fill="#dbdee1" font-size="11.5px" font-weight="700">High Ping (حد البنق المرتفع):</text>
+      <text x="255" y="0" text-anchor="end" class="mono" fill="#f59e0b" font-size="12px" font-weight="800">120 ms</text>
+      <rect x="0" y="10" width="255" height="6" rx="3" fill="#35373c"/>
+      <rect x="0" y="10" width="135" height="6" rx="3" fill="#5865f2"/>
+      <circle cx="135" cy="13" r="7" fill="#ffffff"/>
+      <text x="0" y="27" class="mono" fill="#6d6f78" font-size="8.5px">60</text>
+      <text x="80" y="27" class="mono" fill="#6d6f78" font-size="8.5px">100</text>
+      <text x="135" y="27" class="mono" fill="#f59e0b" font-size="8.5px" font-weight="700">120</text>
+      <text x="255" y="27" text-anchor="end" class="mono" fill="#6d6f78" font-size="8.5px">200</text>
+    </g>
+
+    <!-- Bad Packet Loss Slider (at 5%) -->
+    <g transform="translate(15, 230)">
+      <text x="0" y="0" fill="#dbdee1" font-size="11.5px" font-weight="700">Bad Loss (حد فقدان الحزم):</text>
+      <text x="255" y="0" text-anchor="end" class="mono" fill="#ed4245" font-size="12px" font-weight="800">5 %</text>
+      <rect x="0" y="10" width="255" height="6" rx="3" fill="#35373c"/>
+      <rect x="0" y="10" width="95" height="6" rx="3" fill="#5865f2"/>
+      <circle cx="95" cy="13" r="7" fill="#ffffff"/>
+      <text x="0" y="27" class="mono" fill="#6d6f78" font-size="8.5px">1%</text>
+      <text x="95" y="27" class="mono" fill="#ed4245" font-size="8.5px" font-weight="700">5%</text>
+      <text x="170" y="27" class="mono" fill="#6d6f78" font-size="8.5px">10%</text>
+      <text x="255" y="27" text-anchor="end" class="mono" fill="#6d6f78" font-size="8.5px">20%</text>
+    </g>
+
+    <!-- Bottom Feature Note -->
+    <g transform="translate(15, 278)">
+      <rect width="255" height="30" rx="6" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+      <text x="12" y="19" fill="#4ade80" font-size="10.5px" font-weight="700">⚡ قياس دقيق بالـ WebRTC بدون تأخير للصوت</text>
+    </g>
+  </g>
+</svg>

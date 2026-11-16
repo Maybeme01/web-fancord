@@ -7,7 +7,8 @@ window.FAN_PLUGINS = [
     "descriptionAr": "تعريب كامل لواجهة ديسكورد والإضافات من اليمين لليسار (RTL)، مع خطوط عربية مخصصة وإعدادات لغوية شاملة.",
     "category": "fanplugins",
     "icon": "languages",
-    "isFanPlugin": true
+    "isFanPlugin": true,
+    "previewImg": "assets/preview_arabic_ui.svg"
   },
   {
     "id": "customRPC",
@@ -17,7 +18,8 @@ window.FAN_PLUGINS = [
     "descriptionAr": "إنشاء وتخصيص نشاط وحالة ديسكورد (Rich Presence) بأزرار وروابط وصور مخصصة ومعاينة حية للملف الشخصي.",
     "category": "fanplugins",
     "icon": "sparkles",
-    "isFanPlugin": true
+    "isFanPlugin": true,
+    "previewImg": "assets/preview_custom_rpc.svg"
   },
   {
     "id": "fantoolsall",
@@ -27,17 +29,19 @@ window.FAN_PLUGINS = [
     "descriptionAr": "أقوى جناح لكشف الفيك ديفن (Fake Deafen) وبصمات النسخ المعدلة عبر 6 محاور كشف بروتوكولية وصوتية حتمية مع تنبيهات فورية.",
     "category": "fanplugins",
     "icon": "shield-alert",
-    "isFanPlugin": true
+    "isFanPlugin": true,
+    "previewImg": "assets/preview_fantools.svg"
   },
   {
     "id": "fastPing",
     "name": "FastPing",
-    "nameAr": "المنشن السريع (FastPing)",
-    "descriptionEn": "Double-click any typed user ID in chat to instantly convert it into a clickable <@mention>.",
-    "descriptionAr": "انقر نقراً مزدوجاً على أي معرف مستخدم (User ID) في الدردشة لتحويله فوراً وبشكل تلقائي إلى إشارة منشن <@ID>.",
+    "nameAr": "المنشن السريع ومكافحة القوست (FastPing)",
+    "descriptionEn": "Double-click any typed user ID in chat to instantly convert it into a clickable <@mention>, plus anti-ghost ping alerts.",
+    "descriptionAr": "المنشن السريع بنقر مزدوج وكاشف فوري للقوست بينق (Ghost Ping) مع قياس سرعة استجابة السيرفر بالمللي ثانية.",
     "category": "fanplugins",
     "icon": "at-sign",
-    "isFanPlugin": true
+    "isFanPlugin": true,
+    "previewImg": "assets/preview_fast_ping.svg"
   },
   {
     "id": "obsRemoteControl",
@@ -45,9 +49,9 @@ window.FAN_PLUGINS = [
     "nameAr": "التحكم في OBS من ديسكورد",
     "descriptionEn": "Control OBS Studio stream, recording, scenes, and replay buffer directly from Discord via WebSocket.",
     "descriptionAr": "التحكم الكامل في برنامج OBS Studio والتسجيل والمشاهد ومؤقت الإعادة (Replay Buffer) مباشرة من ديسكورد عبر WebSocket.",
-    "category": "fanplugins",
+    "category": "utilities",
     "icon": "video",
-    "isFanPlugin": true
+    "isFanPlugin": false
   },
   {
     "id": "questify",
@@ -57,17 +61,19 @@ window.FAN_PLUGINS = [
     "descriptionAr": "إكمال تلقائي لمهام وجوائز ديسكورد (Discord Quests)، تسريع مهمات الفيديو، وإزالة الإعلانات والبنرات الترويجية.",
     "category": "fanplugins",
     "icon": "sparkles",
-    "isFanPlugin": true
+    "isFanPlugin": true,
+    "previewImg": "assets/preview_questify.svg"
   },
   {
     "id": "tikTokViewer",
     "name": "TikTok Viewer",
     "nameAr": "تصفح تيك توك المدمج (TikTokViewer)",
-    "descriptionEn": "Embedded sidebar to browse TikTok directly within Discord with session persistence, media controls, and volume slider.",
-    "descriptionAr": "لوحة جانبية لمشاهدة وتصفح تيك توك داخل نافذة ديسكورد مع حفظ الجلسة، سلايدر الصوت، وأزرار التحكم بالتشغيل.",
+    "descriptionEn": "Embedded sidebar to scroll through TikTok feeds and exclusive FanCord plugin video showcases directly within Discord, featuring custom volume slider and auto-mute in voice.",
+    "descriptionAr": "لوحة جانبية ذكية لمشاهدة وتصفح مقاطع تيك توك وشروحات البلوقينات الحصرية داخل ديسكورد، مع تحكم مستقل بمستوى الصوت وحفظ الجلسة تلقائياً.",
     "category": "fanplugins",
     "icon": "play-circle",
-    "isFanPlugin": true
+    "isFanPlugin": true,
+    "previewImg": "assets/preview_tiktok_fancord.svg"
   },
   {
     "id": "voiceLogger",
@@ -77,7 +83,8 @@ window.FAN_PLUGINS = [
     "descriptionAr": "تتبع دقيق وشامل لأحداث القنوات الصوتية (دخول، خروج، انتقال) مع واجهة عربية RTL وفلاتر مستخدمين وسيرفرات.",
     "category": "fanplugins",
     "icon": "list-tree",
-    "isFanPlugin": true
+    "isFanPlugin": true,
+    "previewImg": "assets/preview_voice_logger.svg"
   },
   {
     "id": "voiceRoomRecorder",
@@ -87,7 +94,19 @@ window.FAN_PLUGINS = [
     "descriptionAr": "تسجيل فيديو وصوت عالي الدقة للروم الصوتي يوضح أسماء وصور وتحدث الأعضاء مع بدء وحفظ تلقائي في Videos/FanCord.",
     "category": "fanplugins",
     "icon": "disc",
-    "isFanPlugin": true
+    "isFanPlugin": true,
+    "previewImg": "assets/preview_voice_recorder_ar.svg"
+  },
+  {
+    "id": "voicePing",
+    "name": "VoicePing",
+    "nameAr": "كاشف بنق الصوت (VoicePing)",
+    "descriptionEn": "Real-time latency monitor that displays each member's live ping right next to their avatar in voice channels, with customizable latency alerts and packet loss tracking.",
+    "descriptionAr": "عرض بنق (Ping) وسرعة اتصال كل عضو داخل الروم الصوتي لحظياً بجانب اسمه، مع تتبع ضياع الحزم (Packet Loss) وتنبيهات فورية عند ارتفاع البنق.",
+    "category": "fanplugins",
+    "icon": "activity",
+    "isFanPlugin": true,
+    "previewImg": "assets/preview_voice_ping.svg"
   },
   {
     "id": "oneFA",

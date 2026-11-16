@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 400" width="100%" height="100%" dir="rtl">
+  <defs>
+    <linearGradient id="qu-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16171a"/>
+      <stop offset="100%" stop-color="#0f1012"/>
+    </linearGradient>
+    <linearGradient id="qu-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="qu-bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#4ade80"/>
+    </linearGradient>
+  </defs>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&amp;family=JetBrains+Mono:wght@700&amp;display=swap');
+    text { font-family: 'Cairo', system-ui, -apple-system, sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .title { font-size: 15px; font-weight: 800; fill: #ffffff; }
+    .sub { font-size: 11.5px; font-weight: 600; fill: #949ba4; }
+    .label { font-size: 13px; font-weight: 700; fill: #dbdee1; }
+    .btn-lbl { font-size: 12.5px; font-weight: 800; fill: #ffffff; }
+  </style>
+
+
+  <rect width="620" height="400" rx="12" fill="url(#qu-bg)" stroke="#2b2d31" stroke-width="1.5"/>
+
+  <!-- Window Header -->
+  <g transform="translate(20, 24)">
+    <circle cx="10" cy="8" r="5" fill="#ed4245"/>
+    <circle cx="26" cy="8" r="5" fill="#faa81a"/>
+    <circle cx="42" cy="8" r="5" fill="#3ba55d"/>
+    <text x="64" y="13" class="title">🎯 مساعد مهام ديسكورد التلقائي · Questify</text>
+  </g>
+
+  <!-- Banner -->
+  <g transform="translate(20, 56)">
+    <rect width="580" height="64" rx="8" fill="url(#qu-grad)"/>
+    <text x="20" y="27" fill="#ffffff" font-size="15px" font-weight="900">أكمل مهام Discord Quests تلقائياً بنقرة زر!</text>
+    <text x="20" y="47" fill="rgba(255,255,255,0.9)" font-size="11.5px" font-weight="600">محاكاة ذكية للعبة والبث الصوتي بالخلفية بدون الحاجة لتحميل الألعاب أو فتحها.</text>
+  </g>
+
+  <!-- Quest 1 -->
+  <g transform="translate(20, 132)">
+    <rect width="580" height="74" rx="8" fill="#1e1f22" stroke="rgba(74,222,128,0.4)" stroke-width="1"/>
+    <rect x="14" y="14" width="46" height="46" rx="10" fill="#2b2d31"/>
+    <text x="37" y="42" text-anchor="middle" font-size="20px">🎮</text>
+    
+    <g transform="translate(70, 16)">
+      <text x="0" y="14" class="label" font-size="13px">مهمة لعبة Genshin Impact · العب لمدة 15 دقيقة</text>
+      <text x="0" y="32" class="sub" font-size="11px">المكافأة: صندوق مكافآت داخل اللعبة + شارة بروفايل حصرية</text>
+      <rect x="0" y="40" width="370" height="7" rx="3.5" fill="#2b2d31"/>
+      <rect x="0" y="40" width="370" height="7" rx="3.5" fill="url(#qu-bar)"/>
+    </g>
+
+    <g transform="translate(460, 22)">
+      <rect width="105" height="32" rx="6" fill="#23a55a"/>
+      <text x="52" y="21" text-anchor="middle" fill="#ffffff" font-size="11.5px" font-weight="800">✓ مكتملة 100%</text>
+    </g>
+  </g>
+
+  <!-- Quest 2 -->
+  <g transform="translate(20, 218)">
+    <rect width="580" height="74" rx="8" fill="#1e1f22" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+    <rect x="14" y="14" width="46" height="46" rx="10" fill="#2b2d31"/>
+    <text x="37" y="42" text-anchor="middle" font-size="20px">📺</text>
+    
+    <g transform="translate(70, 16)">
+      <text x="0" y="14" class="label" font-size="13px">مهمة بث الشاشة · شارك اللعب مع صديق لمدة 15 دقيقة</text>
+      <text x="0" y="32" class="sub" font-size="11px">المكافأة: إطار أفتار خاص + شهر ديسكورد تجريبي</text>
+      <rect x="0" y="40" width="370" height="7" rx="3.5" fill="#2b2d31"/>
+      <rect x="0" y="40" width="310" height="7" rx="3.5" fill="#8b5cf6"/>
+    </g>
+
+    <g transform="translate(460, 22)">
+      <rect width="105" height="32" rx="6" fill="rgba(139,92,246,0.25)" stroke="#8b5cf6" stroke-width="1"/>
+      <text x="52" y="21" text-anchor="middle" fill="#c084fc" font-size="11.5px" font-weight="800">⚡ جارٍ الإكمال 85%</text>
+    </g>
+  </g>
+
+  <!-- Auto Claim Toggle -->
+  <g transform="translate(20, 304)">
+    <rect width="580" height="76" rx="8" fill="#1e1f22" stroke="#2b2d31" stroke-width="1"/>
+    <text x="20" y="28" class="label">استلام المكافآت التلقائي (Auto Claim Rewards)</text>
+    <text x="20" y="48" class="sub">إضافة الجوائز والأكواد تلقائياً إلى حسابك فور انتهاء عداد المهمة دون الحاجة لفتح المتصفح.</text>
+    <rect x="510" y="24" width="50" height="26" rx="13" fill="#5865f2"/>
+    <circle cx="547" cy="37" r="10" fill="#ffffff"/>
+  </g>
+</svg>

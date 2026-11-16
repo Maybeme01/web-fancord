@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 400" width="100%" height="100%" dir="rtl">
+  <defs>
+    <linearGradient id="ft-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16171a"/>
+      <stop offset="100%" stop-color="#0f1012"/>
+    </linearGradient>
+  </defs>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&amp;family=JetBrains+Mono:wght@700&amp;display=swap');
+    text { font-family: 'Cairo', system-ui, -apple-system, sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .title { font-size: 15px; font-weight: 800; fill: #ffffff; }
+    .sub { font-size: 11.5px; font-weight: 600; fill: #949ba4; }
+    .label { font-size: 13px; font-weight: 700; fill: #dbdee1; }
+    .btn-lbl { font-size: 12.5px; font-weight: 800; fill: #ffffff; }
+  </style>
+
+
+  <rect width="620" height="400" rx="12" fill="url(#ft-bg)" stroke="#2b2d31" stroke-width="1.5"/>
+
+  <!-- Window Header -->
+  <g transform="translate(20, 24)">
+    <circle cx="10" cy="8" r="5" fill="#ed4245"/>
+    <circle cx="26" cy="8" r="5" fill="#faa81a"/>
+    <circle cx="42" cy="8" r="5" fill="#3ba55d"/>
+    <text x="64" y="13" class="title">🛡️ جناح الحماية والتخفي · FanToolsAll Security Suite</text>
+  </g>
+
+  <!-- Card Status -->
+  <g transform="translate(20, 56)">
+    <rect width="580" height="52" rx="8" fill="#1e1f22" stroke="rgba(16,185,129,0.4)" stroke-width="1"/>
+    <circle cx="24" cy="26" r="6" fill="#10b981"/>
+    <text x="40" y="24" fill="#ffffff" font-size="13px" font-weight="800">🛡️ الحماية النشطة وتعتيم البصمة (Stealth Active 100%)</text>
+    <text x="40" y="42" class="sub" font-size="11px">حسابك محمي بنسبة 100% ولا يمكن لأي سيرفر أو بوت كشف استخدامك لـ FanCord.</text>
+  </g>
+
+  <!-- Setting 1: Fake Deafen -->
+  <g transform="translate(20, 118)">
+    <rect width="580" height="60" rx="8" fill="#1e1f22" stroke="#2b2d31" stroke-width="1"/>
+    <text x="20" y="25" class="label">كاشف مستخدمي الفيك ديفن (Fake Deafen Detector)</text>
+    <text x="20" y="45" class="sub">إظهار علامة تحذير حمراء بجانب أي شخص يسمع الروم وهو يدعي الصمم (Fake Deafen).</text>
+    <rect x="510" y="17" width="50" height="26" rx="13" fill="#5865f2"/>
+    <circle cx="547" cy="30" r="10" fill="#ffffff"/>
+  </g>
+
+  <!-- Setting 2: Mod Fingerprinting -->
+  <g transform="translate(20, 188)">
+    <rect width="580" height="60" rx="8" fill="#1e1f22" stroke="#2b2d31" stroke-width="1"/>
+    <text x="20" y="25" class="label">كاشف بصمات النسخ المعدلة للأعضاء (Mod Fingerprinting)</text>
+    <text x="20" y="45" class="sub">معرفة ما إذا كان العضو يستخدم نسخة معدلة أو إضافة تكشف رسائلك المحذوفة.</text>
+    <rect x="510" y="17" width="50" height="26" rx="13" fill="#5865f2"/>
+    <circle cx="547" cy="30" r="10" fill="#ffffff"/>
+  </g>
+
+  <!-- Setting 3: Anti-Telemetry -->
+  <g transform="translate(20, 258)">
+    <rect width="580" height="60" rx="8" fill="#1e1f22" stroke="#2b2d31" stroke-width="1"/>
+    <text x="20" y="25" class="label">حجب كامل لنقاط تتبع ديسكورد (Anti-Telemetry Shield)</text>
+    <text x="20" y="45" class="sub">منع ديسكورد من جمع بيانات نشاطك، ألعابك المفتوحة، أو مدة استخدامك للبرنامج.</text>
+    <rect x="510" y="17" width="50" height="26" rx="13" fill="#5865f2"/>
+    <circle cx="547" cy="30" r="10" fill="#ffffff"/>
+  </g>
+
+  <!-- Bottom Footer -->
+  <g transform="translate(20, 330)">
+    <rect width="580" height="52" rx="8" fill="#2b2d31" stroke="#35373c" stroke-width="1"/>
+    <text x="20" y="31" fill="#dbdee1" font-size="12px" font-weight="700">🔒 تم فحص ومطابقة 6 محاور حماية بروتوكولية وصوتية حتمية بنجاح</text>
+    <rect x="470" y="11" width="95" height="30" rx="6" fill="#10b981"/>
+    <text x="517" y="31" text-anchor="middle" fill="#ffffff" font-size="11.5px" font-weight="800">فحص الآن</text>
+  </g>
+</svg>

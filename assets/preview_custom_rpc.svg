@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 400" width="100%" height="100%" dir="rtl">
+  <defs>
+    <linearGradient id="cr-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16171a"/>
+      <stop offset="100%" stop-color="#0f1012"/>
+    </linearGradient>
+    <linearGradient id="cr-banner" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="cr-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5865f2"/>
+      <stop offset="100%" stop-color="#4752c4"/>
+    </linearGradient>
+  </defs>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&amp;family=JetBrains+Mono:wght@700&amp;display=swap');
+    text { font-family: 'Cairo', system-ui, -apple-system, sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .title { font-size: 15px; font-weight: 800; fill: #ffffff; }
+    .sub { font-size: 11.5px; font-weight: 600; fill: #949ba4; }
+    .label { font-size: 13px; font-weight: 700; fill: #dbdee1; }
+    .btn-lbl { font-size: 12.5px; font-weight: 800; fill: #ffffff; }
+  </style>
+
+
+  <rect width="620" height="400" rx="12" fill="url(#cr-bg)" stroke="#2b2d31" stroke-width="1.5"/>
+
+  <!-- Profile Banner -->
+  <rect x="0" y="0" width="620" height="85" rx="12" fill="url(#cr-banner)"/>
+  <rect x="0" y="65" width="620" height="20" fill="url(#cr-banner)"/>
+
+  <!-- Window Dots -->
+  <g transform="translate(20, 20)">
+    <circle cx="10" cy="8" r="5" fill="#ed4245"/>
+    <circle cx="26" cy="8" r="5" fill="#faa81a"/>
+    <circle cx="42" cy="8" r="5" fill="#3ba55d"/>
+    <text x="580" y="13" text-anchor="end" fill="#ffffff" font-size="13px" font-weight="800">حالة النشاط المخصصة · CustomRPC</text>
+  </g>
+
+  <!-- Avatar & User Info -->
+  <g transform="translate(30, 60)">
+    <circle cx="34" cy="34" r="34" fill="#111214"/>
+    <circle cx="34" cy="34" r="30" fill="#7c3aed"/>
+    <text x="34" y="42" text-anchor="middle" fill="#ffffff" font-size="18px" font-weight="900">FC</text>
+    <circle cx="54" cy="54" r="8" fill="#23a55a" stroke="#111214" stroke-width="2.5"/>
+  </g>
+
+  <g transform="translate(115, 96)">
+    <text x="0" y="14" class="title">FanCord Official <tspan fill="#a855f7" font-size="11px">[VIP MOD]</tspan></text>
+    <text x="0" y="30" class="sub">@fancord_user · ديسكورد المعرّب الأقوى</text>
+  </g>
+
+  <!-- Discord Activity Card -->
+  <g transform="translate(20, 142)">
+    <rect width="580" height="238" rx="10" fill="#1e1f22" stroke="#2b2d31" stroke-width="1"/>
+    
+    <text x="20" y="26" fill="#b5bac1" font-size="11px" font-weight="800">يلعب الآن (PLAYING A GAME)</text>
+
+    <!-- Game Icon with Verified Check -->
+    <g transform="translate(20, 42)">
+      <rect width="68" height="68" rx="14" fill="#2b2d31" stroke="#5865f2" stroke-width="1.5"/>
+      <circle cx="34" cy="34" r="20" fill="#8b5cf6"/>
+      <text x="34" y="41" text-anchor="middle" fill="#ffffff" font-size="16px">⚡</text>
+      <circle cx="58" cy="58" r="10" fill="#23a55a" stroke="#1e1f22" stroke-width="2"/>
+      <text x="58" y="62" text-anchor="middle" fill="#ffffff" font-size="9px">✓</text>
+    </g>
+
+    <g transform="translate(104, 56)">
+      <text x="0" y="10" class="title" font-size="15px">FanCord 2026 Pro Edition</text>
+      <text x="0" y="28" class="label" font-size="12.5px">يتصفح ديسكورد المعرّب مع 8 إضافات حصرية</text>
+      <text x="0" y="46" class="sub">في روم صوتي: 📢 عام 1 (Public Voice)</text>
+      <text x="0" y="62" class="mono" fill="#a78bfa" font-size="11px">⏱️ الوقت المنقضي: 01:42:08</text>
+    </g>
+
+    <!-- Custom RPC Interactive Buttons -->
+    <g transform="translate(20, 126)">
+      <rect width="540" height="38" rx="6" fill="url(#cr-btn)"/>
+      <text x="270" y="24" text-anchor="middle" class="btn-lbl">🌐 زيارة الموقع الرسمي وتحميل FanCord</text>
+    </g>
+    <g transform="translate(20, 172)">
+      <rect width="540" height="38" rx="6" fill="#2b2d31" stroke="#3b3e45" stroke-width="1"/>
+      <text x="270" y="24" text-anchor="middle" class="btn-lbl" fill="#dbdee1">✨ تصفح دليل الـ 494 إضافة معتمدة</text>
+    </g>
+    <g transform="translate(20, 224)">
+      <text x="270" y="0" text-anchor="middle" fill="#80848e" font-size="10.5px">⚡ يتم تحديث النشاط آنياً في ديسكورد ويظهر لجميع أصدقائك بالسيرفرات</text>
+    </g>
+  </g>
+</svg>

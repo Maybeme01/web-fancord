@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 400" width="100%" height="100%" dir="rtl">
+  <defs>
+    <linearGradient id="vl-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16171a"/>
+      <stop offset="100%" stop-color="#0f1012"/>
+    </linearGradient>
+  </defs>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&amp;family=JetBrains+Mono:wght@700&amp;display=swap');
+    text { font-family: 'Cairo', system-ui, -apple-system, sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .title { font-size: 15px; font-weight: 800; fill: #ffffff; }
+    .sub { font-size: 11.5px; font-weight: 600; fill: #949ba4; }
+    .label { font-size: 13px; font-weight: 700; fill: #dbdee1; }
+    .btn-lbl { font-size: 12.5px; font-weight: 800; fill: #ffffff; }
+  </style>
+
+
+  <rect width="620" height="400" rx="12" fill="url(#vl-bg)" stroke="#2b2d31" stroke-width="1.5"/>
+
+  <!-- Window Header -->
+  <g transform="translate(20, 24)">
+    <circle cx="10" cy="8" r="5" fill="#ed4245"/>
+    <circle cx="26" cy="8" r="5" fill="#faa81a"/>
+    <circle cx="42" cy="8" r="5" fill="#3ba55d"/>
+    <text x="64" y="13" class="title">🎙️ سجل الرومات الصوتية · VoiceLogger</text>
+    <rect x="440" y="-4" width="140" height="26" rx="13" fill="rgba(35,165,90,0.18)" stroke="#23a55a" stroke-width="1"/>
+    <circle cx="454" cy="9" r="4" fill="#23a55a"/>
+    <text x="518" y="13" text-anchor="middle" fill="#4ade80" font-size="11px" font-weight="800">التتبع الحي مفعّل</text>
+  </g>
+
+  <!-- Filter tabs -->
+  <g transform="translate(20, 56)">
+    <rect x="0" y="0" width="80" height="26" rx="6" fill="#5865f2"/>
+    <text x="40" y="17" text-anchor="middle" fill="#ffffff" font-size="11.5px" font-weight="700">الكل (34)</text>
+
+    <rect x="90" y="0" width="90" height="26" rx="6" fill="#2b2d31"/>
+    <text x="135" y="17" text-anchor="middle" fill="#b5bac1" font-size="11.5px" font-weight="700">دخول (18)</text>
+
+    <rect x="190" y="0" width="90" height="26" rx="6" fill="#2b2d31"/>
+    <text x="235" y="17" text-anchor="middle" fill="#b5bac1" font-size="11.5px" font-weight="700">انتقال (10)</text>
+
+    <rect x="290" y="0" width="90" height="26" rx="6" fill="#2b2d31"/>
+    <text x="335" y="17" text-anchor="middle" fill="#b5bac1" font-size="11.5px" font-weight="700">مغادرة (6)</text>
+  </g>
+
+  <!-- Log Entry 1: Joined -->
+  <g transform="translate(20, 94)">
+    <rect width="580" height="60" rx="8" fill="#1e1f22" stroke="rgba(35,165,90,0.4)" stroke-width="1"/>
+    <circle cx="22" cy="22" r="10" fill="rgba(35,165,90,0.2)"/>
+    <text x="22" y="26" text-anchor="middle" fill="#23a55a" font-size="11px">🟢</text>
+    <text x="44" y="24" class="label">انضمام إلى الروم الصوتي</text>
+    <text x="44" y="44" class="sub">دخل <tspan fill="#5865f2" font-weight="800">أحمد (Ahmed#001)</tspan> إلى الروم: <tspan fill="#c084fc">📢 عام 1 (Public 1)</tspan></text>
+    <text x="560" y="24" text-anchor="end" class="mono" fill="#4ade80" font-size="11.5px">14:32:04</text>
+    <text x="560" y="44" text-anchor="end" class="sub" font-size="10.5px">قبل دقيقة واحدة</text>
+  </g>
+
+  <!-- Log Entry 2: Switched -->
+  <g transform="translate(20, 164)">
+    <rect width="580" height="60" rx="8" fill="#1e1f22" stroke="rgba(88,101,242,0.35)" stroke-width="1"/>
+    <circle cx="22" cy="22" r="10" fill="rgba(88,101,242,0.2)"/>
+    <text x="22" y="26" text-anchor="middle" fill="#5865f2" font-size="11px">🔄</text>
+    <text x="44" y="24" class="label">انتقال بين الرومات</text>
+    <text x="44" y="44" class="sub">انتقل <tspan fill="#ec4899" font-weight="800">سلطان (Sultan)</tspan> من <tspan fill="#94a3b8">📢 عام 1</tspan> إلى <tspan fill="#a855f7">🎮 رومات الألعاب</tspan></text>
+    <text x="560" y="24" text-anchor="end" class="mono" fill="#a78bfa" font-size="11.5px">14:28:15</text>
+    <text x="560" y="44" text-anchor="end" class="sub" font-size="10.5px">قبل 5 دقائق</text>
+  </g>
+
+  <!-- Log Entry 3: Left -->
+  <g transform="translate(20, 234)">
+    <rect width="580" height="60" rx="8" fill="#1e1f22" stroke="rgba(237,66,69,0.3)" stroke-width="1"/>
+    <circle cx="22" cy="22" r="10" fill="rgba(237,66,69,0.2)"/>
+    <text x="22" y="26" text-anchor="middle" fill="#ed4245" font-size="11px">🔴</text>
+    <text x="44" y="24" class="label">مغادرة الروم</text>
+    <text x="44" y="44" class="sub">غادر <tspan fill="#dbdee1" font-weight="800">فهد (Fahad_99)</tspan> الروم الصوتي <tspan fill="#94a3b8">📢 عام 1</tspan> (المدة: 1 ساعة و 12 دقيقة)</text>
+    <text x="560" y="24" text-anchor="end" class="mono" fill="#f87171" font-size="11.5px">14:15:50</text>
+    <text x="560" y="44" text-anchor="end" class="sub" font-size="10.5px">قبل 17 دقيقة</text>
+  </g>
+
+  <!-- Bottom Export Bar -->
+  <g transform="translate(20, 310)">
+    <rect width="580" height="72" rx="8" fill="#2b2d31" stroke="#35373c" stroke-width="1"/>
+    <text x="20" y="32" fill="#dbdee1" font-size="12.5px" font-weight="700">💾 حفظ وتصدير السجل الكامل بصيغة TXT أو JSON بنقرة زر</text>
+    <text x="20" y="52" class="sub" font-size="11px">تسجيل صامت بدون استهلاك أي بيانات شبكية أو إبطاء لاتصال الديسكورد.</text>
+    <rect x="470" y="16" width="95" height="38" rx="6" fill="#5865f2"/>
+    <text x="517" y="40" text-anchor="middle" fill="#ffffff" font-size="12px" font-weight="800">تصدير الآن</text>
+  </g>
+</svg>

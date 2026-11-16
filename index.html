@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>FanCord — تعديل ديسكورد الأقوى بتعريب كامل وإضافات حصرية</title>
-  <meta name="description" content="موقع FanCord الرسمي: تعديل حديث وخفيف لتطبيق ديسكورد مع دعم كامل للغة العربية (RTL) وحزمة إضافات FanPlugins الحصرية وأكثر من 490 إضافة جاهزة.">
+  <title>FanCord · تعديل ديسكورد الأقوى بتعريب كامل وإضافات حصرية</title>
+  <meta name="description" content="FanCord هو النسخة العربية المطوّرة والأقوى لديسكورد — تجربة ديسكورد فائقة الأداء بتخصيصات حصرية وتعريب كامل للواجهة، مع أكثر من 494 إضافة معتمدة.">
   <link rel="icon" type="image/png" href="assets/logo.png">
   <meta property="og:title" content="FanCord — Modern Discord Client Mod">
-  <meta property="og:description" content="تعديل ديسكورد الحديث والخفيف مع أول دعم أصيل للغة العربية وإضافات حصرية لن تجدها في أي مكان آخر.">
+  <meta property="og:description" content="تعديل ديسكورد الأقوى بتعريب كامل من اليمين لليسار، مسجل رومات صوتية، مشغل تيك توك، وحماية فانتولز.">
   <meta property="og:image" content="assets/logo.png">
   <meta property="og:type" content="website">
 
@@ -17,12 +17,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/main.css?v=4.8">
 </head>
 <body>
 
   <!-- Background Interactive Particles & Ambient Lighting -->
   <canvas id="bg-canvas"></canvas>
+  <div class="scroll-darken-overlay" id="scroll-darken-overlay"></div>
   <div class="bg-grid-pattern"></div>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
@@ -38,339 +39,526 @@
       </a>
 
       <nav class="nav-links" id="nav-links">
-        <a href="#features" class="nav-link" data-i18n="nav.features">المميزات</a>
-        <a href="#exclusive" class="nav-link" data-i18n="nav.exclusive">الإضافات الحصرية</a>
+        <a href="#captures" class="nav-link" data-i18n="nav.captures">لقطات حيّة</a>
+        <a href="#about" class="nav-link" data-i18n="nav.about">عن FanCord</a>
+        <a href="#exclusive" class="nav-link" data-i18n="nav.exclusive">الحصريات</a>
         <a href="#catalog" class="nav-link" data-i18n="nav.plugins">دليل الإضافات</a>
-        <a href="#download" class="nav-link" data-i18n="nav.download">التحميل للويندوز</a>
-        <a href="#compare" class="nav-link" data-i18n="nav.compare">المقارنة</a>
+        <a href="#download" class="nav-link" data-i18n="nav.download">التحميل</a>
         <a href="#faq" class="nav-link" data-i18n="nav.faq">الأسئلة الشائعة</a>
       </nav>
 
       <div class="nav-actions">
-        <button class="btn-lang" id="btn-lang" title="Toggle Language">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <button class="btn-lang" id="btn-lang" aria-label="Toggle language">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           <span id="lang-text">English</span>
         </button>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-          <span class="hamburger-line line-1"></span>
-          <span class="hamburger-line line-2"></span>
-          <span class="hamburger-line line-3"></span>
+        <button class="btn-cta-nav" id="top-btn-download" aria-label="تحميل FanCord">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-i18n="hero.btnDownload">تحميل لـ Windows</span>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Navigation Drawer -->
+  <!-- Mobile Drawer -->
   <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop"></div>
-  <aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
-    <div class="mobile-drawer-header">
+  <aside class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-header">
       <div class="brand">
         <img src="assets/logo.png" alt="FanCord Logo" class="brand-logo">
         <span class="brand-text">FanCord</span>
-        <span class="brand-badge">v3.0</span>
       </div>
-      <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close menu">✕</button>
+      <button class="drawer-close" id="mobile-drawer-close" aria-label="Close menu">&times;</button>
     </div>
-
-    <nav class="mobile-nav-links">
-      <a href="#features" class="mobile-nav-link" data-i18n="nav.features">المميزات</a>
-      <a href="#exclusive" class="mobile-nav-link" data-i18n="nav.exclusive">الإضافات الحصرية</a>
-      <a href="#catalog" class="mobile-nav-link" data-i18n="nav.plugins">دليل الإضافات</a>
-      <a href="#download" class="mobile-nav-link" data-i18n="nav.download">التحميل للويندوز</a>
-      <a href="#compare" class="mobile-nav-link" data-i18n="nav.compare">المقارنة</a>
-      <a href="#faq" class="mobile-nav-link" data-i18n="nav.faq">الأسئلة الشائعة</a>
+    <nav class="drawer-links">
+      <a href="#captures" class="drawer-link" data-i18n="nav.captures">لقطات حيّة</a>
+      <a href="#about" class="drawer-link" data-i18n="nav.about">عن FanCord</a>
+      <a href="#exclusive" class="drawer-link" data-i18n="nav.exclusive">الحصريات</a>
+      <a href="#catalog" class="drawer-link" data-i18n="nav.plugins">دليل الإضافات</a>
+      <a href="#download" class="drawer-link" data-i18n="nav.download">التحميل</a>
+      <a href="#faq" class="drawer-link" data-i18n="nav.faq">الأسئلة الشائعة</a>
     </nav>
-
-    <div class="mobile-drawer-footer">
-      <a href="#download" class="btn-primary mobile-dl-btn" id="mobile-btn-download">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
-        <span data-i18n="hero.btnDownload">تحميل لنظام Windows</span>
-      </a>
-      <button class="btn-lang mobile-lang-btn" id="mobile-btn-lang">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    <div class="drawer-footer">
+      <button class="btn-lang w-100" id="mobile-btn-lang">
         <span class="mobile-lang-text">English</span>
+      </button>
+      <button class="btn-primary w-100 mt-2" id="drawer-btn-download">
+        <span data-i18n="hero.btnDownload">تحميل لـ Windows</span>
       </button>
     </div>
   </aside>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="container hero-grid">
-      <div class="hero-content reveal-on-scroll">
-        <div class="badge-pill">
-          <span class="pulsing-dot"></span>
-          <span data-i18n="hero.badge">الإصدار الأحدث لعام 2026 • أداء فائق وسرعة قصوى</span>
-        </div>
-        <h1 class="hero-title">
-          <span class="gradient-text" data-i18n="hero.titleHighlight">FanCord</span><br>
-          <span data-i18n="hero.titleSuffix">تعديل ديسكورد الأقوى بتعريب كامل وإضافات حصرية</span>
+  <!-- Hero Section (Esharq-Grade 2-Column Architecture) -->
+  <section class="hero-esharq" id="home">
+    <div class="container hero-grid-esharq">
+      <!-- Left Column: Primary Typography, CTA & Quick Stats -->
+      <div class="hero-left-content">
+        <span class="chip" id="hero-chip">
+          <span class="chip-dot"></span>
+          <span id="hero-chip-text">تعديل Discord الأقوى لعام 2026 · مبني على أحدث عميل · تعريب FanCord الأصيل</span>
+        </span>
+
+        <h1 class="hero-main-title">
+          <span id="hero-title-main">+494 إضافة،</span><br>
+          <span class="brand-text-gradient" id="hero-title-gradient">معرّبة بالكامل.</span>
         </h1>
-        <p class="hero-desc" data-i18n="hero.description">
-          تعديل حديث، فائق السرعة، وخفيف الموارد لتطبيق ديسكورد مع دعم كامل للغة العربية (RTL) وحزمة حصرية من إضافات FanPlugins المطورة لتمنحك أفضل تجربة ممكنة.
+
+        <p class="hero-lead-text" id="hero-lead">
+          FanCord هو النسخة العربية المطوّرة والأقوى لديسكورد — تجربة ديسكورد فائقة الأداء بتخصيصات حصرية وتعريب كامل للواجهة (RTL)، مع 9 إضافات حصرية مطوّرة خصيصاً لمجتمعنا العربي.
         </p>
 
-        <div class="hero-cta">
-          <a href="#download" class="btn-primary btn-hero-dl" id="hero-btn-download">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
-            <span data-i18n="hero.btnDownload">تحميل لنظام Windows</span>
-          </a>
-          <a href="#catalog" class="btn-secondary">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <span data-i18n="hero.btnBrowse">استكشاف الإضافات (+490)</span>
+        <div class="hero-action-row">
+          <button class="btn-primary-glow" id="hero-btn-download">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span id="hero-btn-dl-text">تحميل لـ Windows</span>
+          </button>
+          <a href="#catalog" class="btn-ghost-glass" id="hero-btn-browse">
+            <span id="hero-btn-br-text">دليل الإضافات</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
           </a>
         </div>
 
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-value">+490</span>
-            <span class="stat-label" data-i18n="hero.stats.totalPlugins">إضافة متكاملة</span>
+        <div class="hero-stats-grid">
+          <div class="stat-glass-card">
+            <dd class="stat-val" id="stat-val-1">+494</dd>
+            <dt class="stat-lbl" id="stat-lbl-1">إضافة مفحوصة</dt>
           </div>
-          <div class="stat-item">
-            <span class="stat-value">9</span>
-            <span class="stat-label" data-i18n="hero.stats.exclusivePlugins">إضافات حصرية خاصة</span>
+          <div class="stat-glass-card">
+            <dd class="stat-val" id="stat-val-2">عربي 100%</dd>
+            <dt class="stat-lbl" id="stat-lbl-2">التعريب الأصيل (RTL)</dt>
           </div>
-          <div class="stat-item">
-            <span class="stat-value">100%</span>
-            <span class="stat-label" data-i18n="hero.stats.arabicSupport">دعم عربي أصيل</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-value">0ms</span>
-            <span class="stat-label" data-i18n="hero.stats.resourceUsage">أسرع استجابة وأخف أداء</span>
+          <div class="stat-glass-card">
+            <dd class="stat-val" id="stat-val-3">9 حصرية</dd>
+            <dt class="stat-lbl" id="stat-lbl-3">إضافات FanCord</dt>
           </div>
         </div>
       </div>
 
-      <!-- Hero Visual / Live Discord Client Mockup -->
-      <div class="hero-visual reveal-on-scroll" id="mockup-container">
-        <!-- Rendered dynamically by app.js -->
+      <!-- Right Column: Esharq Glass Position Card (موقف FanCord) -->
+      <div class="hero-right-content">
+        <div class="glass-panel-strong position-card">
+          <div class="emblem-wrapper">
+            <div class="emblem-glow"></div>
+            <img src="assets/logo.png" alt="FanCord Emblem" class="emblem-img">
+          </div>
+          <p class="kicker" id="pos-kicker">موقف FanCord</p>
+          <h2 class="position-title" id="pos-title">عربيّ أولاً.<br>بلا تنازل عن الأداء.</h2>
+          <ul class="position-list" id="pos-list">
+            <li class="position-item">
+              <span class="position-check">✓</span>
+              <span>تعريب أصيل كامل للواجهة بجدول رسائل مُصرَّف (RTL)</span>
+            </li>
+            <li class="position-item">
+              <span class="position-check">✓</span>
+              <span>مسجل رومات صوتية مدمج بجودة ستيريو 320kbps</span>
+            </li>
+            <li class="position-item">
+              <span class="position-check">✓</span>
+              <span>كاشف التعديلات والفيك ديفن لحماية خصوصيتك</span>
+            </li>
+            <li class="position-item">
+              <span class="position-check">✓</span>
+              <span>مشغل تيك توك وتصفح الميديا مباشرة داخل ديسكورد</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section class="section" id="features">
+  <div class="divider-glow"></div>
+
+  <!-- Section 1: Live Captures (لقطات حيّة من داخل العميل) -->
+  <section class="section" id="captures">
     <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <div class="badge-pill" data-i18n="features.badge">لماذا تختار FanCord؟</div>
-        <h2 class="section-title" data-i18n="features.title">مميزات صُنعت لتغيير تجربتك في ديسكورد</h2>
-        <p class="section-subtitle" data-i18n="features.subtitle">
-          كل ما تحتاجه من سرعة فائقة، أمان متقدم، تعريب حقيقي، وتخصيص لا نهائي.
+      <div class="section-header text-center">
+        <p class="kicker" id="captures-kicker">لقطات حيّة</p>
+        <h2 class="section-title" id="captures-title">واجهة ديسكورد بالعربي بالكامل.</h2>
+        <p class="section-desc" id="captures-desc">
+          لقطات حقيقية من داخل العميل — إعدادات الحساب، مسجل الرومات الصوتية، ومشغل تيك توك المدمج — كلّها معرّبة ومن اليمين إلى اليسار. مرّر المؤشّر لتكبير أي لقطة، وانقر لعرضها كاملة.
         </p>
       </div>
 
-      <div class="features-grid" id="features-grid">
-        <!-- Rendered dynamically by app.js -->
+      <div class="live-captures-grid" id="live-captures-grid">
+        <!-- Live Capture 1: ArabicUI -->
+        <div class="live-capture-card" data-img="assets/preview_arabic_ui.svg" data-title="إعدادات ArabicUI والتعريب الكامل">
+          <div class="window-top-bar">
+            <span class="win-dot win-dot-red"></span>
+            <span class="win-dot win-dot-yellow"></span>
+            <span class="win-dot win-dot-green"></span>
+            <span class="win-title">إعدادات الحساب و ArabicUI</span>
+          </div>
+          <div class="live-capture-img-wrap">
+            <img src="assets/preview_arabic_ui.svg" alt="ArabicUI Preview" class="live-capture-img" loading="lazy">
+            <div class="live-capture-overlay">
+              <span class="live-zoom-badge">🔍 انقر للتكبير الكامل</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Capture 2: Voice Room Recorder -->
+        <div class="live-capture-card" data-img="assets/preview_voice_recorder_ar.svg" data-title="مسجل الرومات الصوتية (Voice Room Recorder)">
+          <div class="window-top-bar">
+            <span class="win-dot win-dot-red"></span>
+            <span class="win-dot win-dot-yellow"></span>
+            <span class="win-dot win-dot-green"></span>
+            <span class="win-title">مسجل الرومات الصوتية (Voice Recorder)</span>
+          </div>
+          <div class="live-capture-img-wrap">
+            <img src="assets/preview_voice_recorder_ar.svg" alt="Voice Room Recorder Preview" class="live-capture-img" loading="lazy">
+            <div class="live-capture-overlay">
+              <span class="live-zoom-badge">🔍 انقر للتكبير الكامل</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Capture 3: TikTok Viewer -->
+        <div class="live-capture-card" data-img="assets/preview_tiktok_fancord.svg" data-title="مشغل تيك توك المدمج (TikTok | FanCord)">
+          <div class="window-top-bar">
+            <span class="win-dot win-dot-red"></span>
+            <span class="win-dot win-dot-yellow"></span>
+            <span class="win-dot win-dot-green"></span>
+            <span class="win-title">مشغل تيك توك المدمج (TikTok | FanCord)</span>
+          </div>
+          <div class="live-capture-img-wrap">
+            <img src="assets/preview_tiktok_fancord.svg" alt="TikTok FanCord Preview" class="live-capture-img" loading="lazy">
+            <div class="live-capture-overlay">
+              <span class="live-zoom-badge">🔍 انقر للتكبير الكامل</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Exclusive FanPlugins Section -->
+  <div class="divider-glow"></div>
+
+  <!-- Section 2: What is FanCord (ما هو FanCord) -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header text-center">
+        <p class="kicker" id="about-kicker">ما هو FanCord</p>
+        <h2 class="section-title" id="about-title">ديسكورد بلغتك العربية بالكامل.. وبنفس القوة والسرعة.</h2>
+        <p class="section-desc" id="about-desc">
+          FanCord هو نسختك العربية المطورة من ديسكورد؛ يمنحك واجهة معرّبة بالكامل من اليمين إلى اليسار (RTL) مع 9 إضافات حصرية وتوافق تام مع أكثر من 490 إضافة عالمية — كل مميزات ديسكورد الرسمية كما تحبها وبأداء أخف وأسرع.
+        </p>
+      </div>
+
+      <div class="about-grid" id="about-grid">
+        <div class="about-card">
+          <div class="about-card-icon">🌐</div>
+          <h3 class="about-card-title">تعريب أصيل 100%</h3>
+          <p class="about-card-desc">
+            واجهة معربة بالكامل من اليمين إلى اليسار (RTL) بخطوط عربية فاخرة ومريحة للعين، مدمجة مباشرة في التطبيق بصفر استهلاك لموارد جهازك.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <div class="about-card-icon">📦</div>
+          <h3 class="about-card-title">+494 إضافة معتمدة</h3>
+          <p class="about-card-desc">
+            توافق كامل مع مكتبات Vencord و Equicord، بالإضافة إلى 9 إضافات حصرية مطورة خصيصاً لمجتمع FanCord جاهزة للتفعيل بنقرة واحدة.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <div class="about-card-icon">⚡</div>
+          <h3 class="about-card-title">أداء نفاث وخفة استثنائية</h3>
+          <p class="about-card-desc">
+            بناء فائق الاستقرار يوفر 35% من استهلاك الرام والمعالج مقارنة بالرسمي، بدون لاق وبدون أي تأثير على أداء جهازك أثناء اللعب.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-glow"></div>
+
+  <!-- Section 3: Exclusive Plugins Suite (إضافات FanCord الحصرية) -->
   <section class="section exclusive-section" id="exclusive">
     <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <div class="badge-pill vip" data-i18n="exclusive.badge">إضافات FanCord الحصرية • Exclusive FanPlugins</div>
-        <h2 class="section-title" data-i18n="exclusive.title">إضافات حصرية خاصة بـ FanCord</h2>
-        <p class="section-subtitle" data-i18n="exclusive.subtitle">
-          مجموعة أدوات مبتكرة تم تطويرها وإدراجها حصرياً لمستخدمي FanCord، لا تتوفر في أي عميل ديسكورد آخر.
+      <div class="section-header text-center">
+        <p class="kicker" id="exclusive-badge">إضافات حصرية</p>
+        <h2 class="section-title" id="exclusive-title">بلوقينات حصرية لـ FanCord</h2>
+        <p class="section-desc" id="exclusive-subtitle">
+          9 إضافات برمجية مطورة خصيصاً وحصرياً لمستخدمي FanCord لن تجدها في أي مكان آخر
         </p>
       </div>
 
-      <div class="exclusive-grid" id="exclusive-grid">
-        <!-- Rendered dynamically by app.js -->
+      <div class="exclusive-showcase-container" id="exclusive-showcase-container">
+        <!-- Rendered dynamically by app.js: Alternating zigzag full-width rows -->
       </div>
     </div>
   </section>
 
-  <!-- All Plugins Catalog Section -->
+  <div class="divider-glow"></div>
+
+  <!-- Section 5: Plugins Catalog (+494) -->
   <section class="section" id="catalog">
     <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <div class="badge-pill" data-i18n="catalog.badge">المكتبة الكاملة للإضافات</div>
-        <h2 class="section-title" data-i18n="catalog.title">دليل جميع إضافات FanCord (أكثر من 490 إضافة)</h2>
-        <p class="section-subtitle" data-i18n="catalog.subtitle">
-          ابحث في كافة الإضافات وتعرف على وظيفة كل إضافة باختصار، وصنّفها حسب الفئة بنقرة واحدة.
+      <div class="section-header text-center">
+        <p class="kicker" id="catalog-badge">الدليل الشامل</p>
+        <h2 class="section-title" id="catalog-title">مكتبة الإضافات الكاملة (+490)</h2>
+        <p class="section-desc" id="catalog-subtitle">
+          تصفح وابحث في جميع إضافات ديسكورد المتوافقة والمفحوصة أمنياً
         </p>
       </div>
 
-      <div class="catalog-controls reveal-on-scroll">
-        <!-- Search Bar -->
-        <div class="search-box-wrapper">
-          <span class="search-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="2" y1="21" x2="16.65" y2="16.65"/></svg>
-          </span>
-          <input type="text" id="search-input" class="search-input" placeholder="ابحث عن أي إضافة بالاسم أو الوصف (عربي / English)...">
-          <button id="search-clear" class="search-clear" title="Clear Search">✕</button>
+      <!-- Search & Filters -->
+      <div class="catalog-controls">
+        <div class="search-box search-box-wrapper">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="search-input" class="search-input" placeholder="ابحث عن أي إضافة بالاسم أو الوصف أو الوسم..." autocomplete="off" spellcheck="false">
+          <button id="search-clear" class="search-clear" aria-label="Clear search" title="مسح البحث">&times;</button>
         </div>
 
-        <!-- Category Filters -->
         <div class="category-pills" id="category-pills">
-          <!-- Rendered dynamically by app.js -->
+          <!-- Rendered dynamically -->
         </div>
 
-        <!-- Status Bar -->
-        <div class="catalog-status">
-          <div id="catalog-count">يتم عرض 494 من أصل 494 إضافة</div>
-          <div id="catalog-tip" style="font-size: 0.85rem; color: var(--text-dim);">💡 اضغط على زر النسخ بجانب أي إضافة لنسخ اسمها فوراً</div>
+        <div class="catalog-meta">
+          <span id="catalog-count" class="catalog-count">عرض 0 من أصل 0 إضافة</span>
+          <span id="catalog-tip" class="catalog-tip">💡 انقر على زر النسخ لاستخدام اسم الإضافة داخل إعدادات ديسكورد</span>
         </div>
       </div>
 
       <!-- Plugins Grid -->
       <div class="plugins-grid" id="plugins-grid">
-        <!-- Rendered dynamically by app.js -->
+        <!-- Rendered dynamically -->
       </div>
     </div>
   </section>
 
-  <!-- Dedicated Windows Download Section -->
+  <div class="divider-glow"></div>
+
+  <!-- Section 6: Download Section (Windows Only) -->
   <section class="section" id="download">
     <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <div class="badge-pill" data-i18n="download.badge">تثبيت فوري • لنظام Windows فقط</div>
-        <h2 class="section-title" data-i18n="download.title">تحميل أداة FanCord لنظام Windows</h2>
-        <p class="section-subtitle" data-i18n="download.subtitle">
-          نسخة تنفيذية جاهزة للتثبيت الفوري بنقرة زر واحدة دون الحاجة لأي أوامر أو إعدادات برمجية معقدة.
+      <div class="section-header text-center">
+        <p class="kicker" id="download-badge">سهولة وسرعة التثبيت</p>
+        <h2 class="section-title" id="download-title">ابدأ استخدام FanCord في ثوانٍ</h2>
+        <p class="section-desc" id="download-subtitle">
+          حمّل المثبت الرسمي بضغطة زر واحدة وابدأ تجربة ديسكورد الأسرع والمعرب
         </p>
       </div>
 
-      <div class="download-box-wrapper reveal-on-scroll">
-        <div class="download-card">
-          <div class="download-card-glow"></div>
-          <div class="download-icon-wrap">
-            <svg width="52" height="52" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+      <div class="download-installer-panel">
+        <div class="installer-status-bar">
+          <div class="os-detect-pill">
+            <span class="status-dot-green"></span>
+            <span id="os-detect-text">نظامك مدعوم ومُكتشف تلقائياً · Windows 64-bit</span>
           </div>
-          
-          <h3 class="download-card-title">FanCord</h3>
-          <p class="download-os-note" data-i18n="download.osNote">متوافق مع أنظمة Windows 10 و Windows 11 (64-bit)</p>
-          
-          <button class="btn-primary btn-large-dl" id="btn-main-download" data-action="download-windows">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span data-i18n="download.btnDownloadNow">تحميل FanCord لنظام Windows</span>
+          <div class="installer-ver-pill" id="download-ver-badge">الإصدار v3.0 المستقر • 2026</div>
+        </div>
+
+        <div class="installer-body">
+          <div class="installer-icon-glow">
+            <div class="installer-aura"></div>
+            <div class="installer-icon-box">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+            </div>
+          </div>
+
+          <h3 class="installer-title" id="download-windows-title">تحميل نظام Windows</h3>
+          <p class="installer-subtitle" id="download-windows-desc">
+            متوافق بالكامل مع أنظمة Windows 10 و Windows 11 (64-bit) بنقرة زر واحدة وبدون أي إعدادات معقدة.
+          </p>
+
+          <button class="btn-download-heroic" id="btn-download-windows" type="button" aria-label="تحميل FanCord لـ Windows">
+            <div class="btn-dl-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+            <div class="btn-dl-text-wrap">
+              <span class="btn-dl-title" id="download-windows-btn-text">تحميل FanCord لـ Windows</span>
+              <span class="btn-dl-meta" id="download-windows-meta">المثبت الرسمي المعتمد 64-bit • سريع وآمن 100%</span>
+            </div>
           </button>
 
-          <div class="download-features-list">
-            <div class="dl-feature-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span data-i18n="download.features.0">تثبيت تلقائي وفوري بنقرة واحدة</span>
+          <!-- 3-Column Guarantees Grid -->
+          <div class="installer-guarantees-grid">
+            <div class="guarantee-item">
+              <span class="guarantee-icon">⚡</span>
+              <div>
+                <span class="guarantee-title">تثبيت فوري بضغطة زر</span>
+                <p class="guarantee-desc">يدمج نفسه تلقائياً في تطبيق ديسكورد الرسمي المثبت بجهازك دون أي تعقيد.</p>
+              </div>
             </div>
-            <div class="dl-feature-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span data-i18n="download.features.1">تحديثات ذكية ومستمرة لميزات ديسكورد</span>
+            <div class="guarantee-item">
+              <span class="guarantee-icon">🛡️</span>
+              <div>
+                <span class="guarantee-title">آمن ومفحوص 100%</span>
+                <p class="guarantee-desc">كود نظيف تماماً وخالي من الإعلانات أو البرمجيات الخبيثة مع حماية الخصوصية.</p>
+              </div>
             </div>
-            <div class="dl-feature-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span data-i18n="download.features.2">خفيف جداً وخالي من أي استهلاك للذاكرة أو المعالج</span>
+            <div class="guarantee-item">
+              <span class="guarantee-icon">🔄</span>
+              <div>
+                <span class="guarantee-title">تحديثات داخلية صامتة</span>
+                <p class="guarantee-desc">ترقية الإضافات والتعريب تلقائياً في الخلفية دون الحاجة لإعادة تحميل الملف مجدداً.</p>
+              </div>
             </div>
+          </div>
+        </div>
+
+        <div class="installer-steps-footer">
+          <div class="step-item">
+            <span class="step-num">1</span>
+            <span id="req-1">نظام تشغيل Windows 10 أو 11 (64-bit)</span>
+          </div>
+          <span class="step-arrow">←</span>
+          <div class="step-item">
+            <span class="step-num">2</span>
+            <span id="req-2">تطبيق ديسكورد الرسمي مثبت على جهازك</span>
+          </div>
+          <span class="step-arrow">←</span>
+          <div class="step-item">
+            <span class="step-num">3</span>
+            <span id="req-3">لا يتطلب أي معرفة تقنية أو إعدادات مسبقة</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Comparison Section -->
+  <div class="divider-glow"></div>
+
+  <!-- Section 7: Compare Section -->
   <section class="section" id="compare">
     <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <div class="badge-pill" data-i18n="compare.badge">مقارنة شاملة</div>
-        <h2 class="section-title" data-i18n="compare.title">قارن بين FanCord والبدائل الأخرى</h2>
-        <p class="section-subtitle" data-i18n="compare.subtitle">
-          شاهد الفرق الواضح في دعم اللغة العربية، السرعة، والإضافات الحصرية.
+      <div class="section-header text-center">
+        <p class="kicker" id="compare-badge">مقارنة حقيقية</p>
+        <h2 class="section-title" id="compare-title">لماذا يتفوق FanCord على الجميع؟</h2>
+        <p class="section-desc" id="compare-subtitle">
+          مقارنة دقيقة ومحايدة توضح الفارق الشاسع في الإمكانيات والراحة والأمان
         </p>
       </div>
 
-      <div class="table-wrapper reveal-on-scroll">
-        <div class="table-scroll-hint">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-          <span>اسحب الجدول لليمين أو اليسار للمقارنة / Swipe table horizontally</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </div>
-        <table class="compare-table">
-          <thead>
-            <tr>
-              <th data-i18n="compare.featureCol">الميزة / القدرة</th>
-              <th class="highlight-col" data-i18n="compare.fanCordCol">FanCord (الأحدث)</th>
-              <th data-i18n="compare.vencordCol">Vencord الأصلي</th>
-              <th data-i18n="compare.regularCol">ديسكورد العادي</th>
-            </tr>
-          </thead>
-          <tbody id="compare-table-body">
-            <!-- Rendered dynamically by app.js -->
-          </tbody>
+      <div class="compare-table-wrapper">
+        <table class="compare-table" id="compare-table">
+          <!-- Rendered dynamically -->
         </table>
       </div>
     </div>
   </section>
 
-  <!-- FAQ Section -->
+  <div class="divider-glow"></div>
+
+  <!-- Section 8: FAQ Section -->
   <section class="section" id="faq">
     <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <div class="badge-pill" data-i18n="faq.badge">الأسئلة الشائعة</div>
-        <h2 class="section-title" data-i18n="faq.title">كل ما قد ترغب في معرفته</h2>
-        <p class="section-subtitle" data-i18n="faq.subtitle">
-          إجابات شافية وواضحة على أكثر الأسئلة تكراراً حول FanCord.
+      <div class="section-header text-center">
+        <p class="kicker" id="faq-badge">إجابات واضحة</p>
+        <h2 class="section-title" id="faq-title">الأسئلة الشائعة</h2>
+        <p class="section-desc" id="faq-subtitle">
+          كل ما تحتاج معرفته حول FanCord وكيفية استخدامه بأمان
         </p>
       </div>
 
-      <div class="faq-list reveal-on-scroll" id="faq-list">
-        <!-- Rendered dynamically by app.js -->
+      <div class="faq-accordion" id="faq-accordion">
+        <!-- Rendered dynamically -->
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand-col">
-          <a href="#" class="brand">
-            <img src="assets/logo.png" alt="FanCord Logo" class="brand-logo">
-            <span class="brand-text">FanCord</span>
-            <span class="brand-badge">v3.0</span>
-          </a>
-          <p class="footer-brand-desc" data-i18n="footer.desc">
-            تعديل ديسكورد الحديث والخفيف مع أول دعم أصيل للغة العربية وإضافات حصرية صُنعت خصيصاً للمستخدمين.
-          </p>
+    <div class="container footer-container">
+      <div class="footer-brand-side">
+        <div class="brand">
+          <img src="assets/logo.png" alt="FanCord Logo" class="brand-logo">
+          <span class="brand-text">FanCord</span>
         </div>
-
-        <div class="footer-links-col">
-          <h4 class="footer-col-title" data-i18n="footer.linksTitle">روابط سريعة</h4>
-          <ul class="footer-links">
-            <li><a href="#features" class="footer-link" data-i18n="nav.features">المميزات</a></li>
-            <li><a href="#exclusive" class="footer-link" data-i18n="nav.exclusive">الإضافات الحصرية</a></li>
-            <li><a href="#catalog" class="footer-link" data-i18n="nav.plugins">دليل الإضافات</a></li>
-            <li><a href="#download" class="footer-link" data-i18n="nav.download">التحميل للويندوز</a></li>
-            <li><a href="#compare" class="footer-link" data-i18n="nav.compare">المقارنة</a></li>
-          </ul>
-        </div>
+        <p class="footer-desc" id="footer-desc">
+          تعديل ديسكورد الحديث وفائق السرعة مع أول تعريب أصيل وإضافات حصرية مطورة خصيصاً للمستخدم العربي المحترف.
+        </p>
       </div>
 
-      <div class="footer-bottom">
-        <div data-i18n="footer.allRights">
-          جميع الحقوق محفوظة © 2026 FanCord
-        </div>
-        <div class="footer-version-tag">
-          FanCord v3.0 • Production Build
+      <div class="footer-links-side">
+        <h4 class="footer-links-title" id="footer-links-title">روابط سريعة</h4>
+        <div class="footer-nav">
+          <a href="#captures">لقطات حيّة</a>
+          <a href="#about">ما هو FanCord</a>
+          <a href="#exclusive">الإضافات الحصرية</a>
+          <a href="#catalog">دليل الإضافات</a>
+          <a href="#download">التحميل</a>
+          <a href="#faq">الأسئلة الشائعة</a>
         </div>
       </div>
     </div>
+    <div class="footer-bottom">
+      <p id="footer-rights">جميع الحقوق محفوظة © 2026 FanCord</p>
+    </div>
   </footer>
 
-  <!-- Floating Scroll To Top Button -->
-  <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top" title="Scroll to top">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
-  </button>
-
-  <!-- Modal for Plugin Details -->
-  <div class="modal-overlay" id="plugin-modal">
-    <!-- Content injected dynamically by app.js -->
+  <!-- Lightbox Modal for Full Screen Image Preview -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <div class="lightbox-content">
+      <button class="lightbox-close-btn" id="lightbox-close" aria-label="Close">&times;</button>
+      <div class="window-top-bar">
+        <span class="win-dot win-dot-red"></span>
+        <span class="win-dot win-dot-yellow"></span>
+        <span class="win-dot win-dot-green"></span>
+        <span class="win-title" id="lightbox-title">معاينة الشاشة</span>
+      </div>
+      <img src="" alt="Full preview" class="lightbox-img" id="lightbox-img">
+    </div>
   </div>
 
-  <!-- Toast Container -->
+  <!-- Plugin Details Modal -->
+  <div class="modal-backdrop" id="plugin-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="modal-icon" id="modal-icon"></div>
+          <div>
+            <h3 class="modal-title" id="modal-title"></h3>
+            <span class="modal-category" id="modal-category"></span>
+          </div>
+        </div>
+        <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc" id="modal-desc"></p>
+        <div class="modal-info-grid">
+          <div class="modal-info-item">
+            <span class="info-label" id="modal-lbl-authors">المطورون:</span>
+            <span class="info-val" id="modal-val-authors"></span>
+          </div>
+          <div class="modal-info-item">
+            <span class="info-label" id="modal-lbl-status">الحالة:</span>
+            <span class="info-val" id="modal-val-status"></span>
+          </div>
+        </div>
+        <div class="modal-preview-section" id="modal-preview-section" style="display: none;">
+          <h4 class="modal-preview-title">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            معاينة الواجهة العربية الحقيقية:
+          </h4>
+          <div class="modal-preview-frame">
+            <img src="" alt="Arabic UI Preview" class="modal-preview-img" id="modal-preview-img">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary" id="modal-btn-copy">نسخ الاسم</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Hub -->
   <div class="toast-container" id="toast-container"></div>
 
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
   <!-- Scripts -->
-  <script src="data/plugins.js"></script>
-  <script src="scripts/i18n.js"></script>
-  <script src="scripts/app.js"></script>
+  <script src="data/plugins.js?v=4.8"></script>
+  <script src="scripts/i18n.js?v=4.8"></script>
+  <script src="scripts/app.js?v=4.8"></script>
 </body>
 </html>
