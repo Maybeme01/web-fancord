@@ -10,12 +10,12 @@
   // Obfuscated Windows Download Payload
   const _0xPayload = [
     'aHR0cHM6Ly9naXRo',
-    'dWIuY29tL01heWJl',
-    'bWUwMS93ZWItZmFu',
-    'Y29yZC9yZWxlYXNl',
-    'cy9kb3dubG9hZC8x',
-    'LjAvRmFuLURpc2Nv',
-    'cmQuZXhl'
+    'dWIuY29tL2ZhbmNv',
+    'cmQtZGV2L3dlYi1m',
+    'YW5jb3JkL3JlbGVh',
+    'c2VzL2Rvd25sb2Fk',
+    'LzEuMC9GYW4tRGlz',
+    'Y29yZC5leGU='
   ];
 
   function initiateWindowsDownload() {
@@ -23,13 +23,13 @@
       const target = atob(_0xPayload.join(''));
       const a = document.createElement('a');
       a.href = target;
-      a.setAttribute('download', 'Fan-Discord.exe');
+      a.setAttribute('download', 'FanCord.exe');
       a.style.display = 'none';
       document.body.appendChild(a);
       a.click();
       setTimeout(() => a.remove(), 1000);
       showToast(
-        currentLang === 'ar' ? 'جارٍ بدء تحميل Fan-Discord.exe...' : 'Starting Fan-Discord.exe download...',
+        currentLang === 'ar' ? 'جارٍ بدء تحميل FanCord...' : 'Starting FanCord download...',
         'success'
       );
     } catch (err) {
@@ -41,6 +41,8 @@
   const elHtml = document.documentElement;
   const elBtnLang = document.getElementById('btn-lang');
   const elLangText = document.getElementById('lang-text');
+  const elMobileBtnLang = document.getElementById('mobile-btn-lang');
+  const elMobileLangText = document.querySelector('.mobile-lang-text');
   const elExclusiveGrid = document.getElementById('exclusive-grid');
   const elPluginsGrid = document.getElementById('plugins-grid');
   const elFeaturesGrid = document.getElementById('features-grid');
@@ -53,6 +55,11 @@
   const elNavbar = document.getElementById('navbar');
   const elModal = document.getElementById('plugin-modal');
   const elToastContainer = document.getElementById('toast-container');
+  const elMenuToggle = document.getElementById('menu-toggle');
+  const elMobileDrawer = document.getElementById('mobile-drawer');
+  const elMobileDrawerBackdrop = document.getElementById('mobile-drawer-backdrop');
+  const elMobileDrawerClose = document.getElementById('mobile-drawer-close');
+  const elScrollToTop = document.getElementById('scroll-to-top');
 
   // SVG Icons helper
   function getIconSvg(iconName) {
@@ -83,18 +90,19 @@
     return icons[iconName] || icons['puzzle'];
   }
 
-  // Toast notification
+  // Toast notification (Clean & crisp)
   function showToast(message, type = 'info') {
+    if (!elToastContainer) return;
     const toast = document.createElement('div');
     toast.className = 'toast';
     toast.innerHTML = `${getIconSvg(type === 'success' ? 'check' : 'info')} <span>${message}</span>`;
     elToastContainer.appendChild(toast);
     setTimeout(() => {
       toast.style.opacity = '0';
-      toast.style.transform = 'translateY(10px)';
-      toast.style.transition = '0.3s ease-out';
-      setTimeout(() => toast.remove(), 300);
-    }, 2800);
+      toast.style.transform = 'translateY(10px) scale(0.96)';
+      toast.style.transition = '0.25s cubic-bezier(0.16, 1, 0.3, 1)';
+      setTimeout(() => toast.remove(), 260);
+    }, 2600);
   }
 
   // Copy helper
@@ -106,6 +114,25 @@
     });
   }
 
+  // Mobile Drawer Control
+  function openMobileDrawer() {
+    if (elMobileDrawer) elMobileDrawer.classList.add('is-open');
+    if (elMobileDrawerBackdrop) elMobileDrawerBackdrop.classList.add('is-open');
+    if (elMenuToggle) elMenuToggle.classList.add('is-active');
+    if (elMobileDrawer) elMobileDrawer.setAttribute('aria-hidden', 'false');
+    if (elMenuToggle) elMenuToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileDrawer() {
+    if (elMobileDrawer) elMobileDrawer.classList.remove('is-open');
+    if (elMobileDrawerBackdrop) elMobileDrawerBackdrop.classList.remove('is-open');
+    if (elMenuToggle) elMenuToggle.classList.remove('is-active');
+    if (elMobileDrawer) elMobileDrawer.setAttribute('aria-hidden', 'true');
+    if (elMenuToggle) elMenuToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
   // Switch Language
   function setLanguage(lang) {
     currentLang = lang;
@@ -115,9 +142,12 @@
 
     const t = translations[lang];
 
-    // Update Lang button text
+    // Update Lang button text (desktop & mobile)
     if (elLangText) {
       elLangText.textContent = t.nav.languageToggle;
+    }
+    if (elMobileLangText) {
+      elMobileLangText.textContent = t.nav.languageToggle;
     }
 
     // Update static translated elements with data-i18n
@@ -154,6 +184,7 @@
     renderPluginsCatalog();
     renderComparisonTable();
     renderFAQ();
+    initCardEffects();
   }
 
   // Render Features Grid
@@ -161,25 +192,37 @@
     if (!elFeaturesGrid) return;
     const t = translations[currentLang];
     elFeaturesGrid.innerHTML = '';
-    t.features.cards.forEach(card => {
-      const el = document.createElement('div');
-      el.className = 'feature-card';
-      el.innerHTML = `
-        <div class="feature-icon-box">${getIconSvg(card.icon)}</div>
+
+    t.features.cards.forEach((card, idx) => {
+      const div = document.createElement('div');
+      div.className = 'feature-card reveal-on-scroll';
+      div.style.transitionDelay = `${idx * 0.06}s`;
+      div.innerHTML = `
+        <div class="feature-icon-wrap">${getIconSvg(card.icon)}</div>
         <h3 class="feature-title">${card.title}</h3>
         <p class="feature-desc">${card.desc}</p>
       `;
-      elFeaturesGrid.appendChild(el);
+      elFeaturesGrid.appendChild(div);
     });
   }
 
-  // Render Discord Mockup
+  // Render Discord Mockup (Grounded, High-Fidelity & Clean)
   function renderMockup() {
     if (!elMockupContainer) return;
     const t = translations[currentLang];
     const m = t.mockup;
 
+    const floater1Text = currentLang === 'ar' ? '🇸🇦 دعم عربي RTL أصيل' : '🇸🇦 True Arabic RTL Support';
+    const floater2Text = currentLang === 'ar' ? '⚡ 494 إضافة جاهزة للاستخدام' : '⚡ 494 Verified Plugins';
+    const onlineText = currentLang === 'ar' ? '1,420 متصل' : '1,420 Online';
+    const typingStatusText = currentLang === 'ar' ? 'نظام FanCord يكتب الآن...' : 'FanCord System is typing...';
+
     elMockupContainer.innerHTML = `
+      <div class="mockup-floater floater-top">
+        <span>✨</span>
+        <span>${floater1Text}</span>
+      </div>
+
       <div class="mockup-window">
         <div class="mockup-titlebar">
           <div class="window-dots">
@@ -187,13 +230,20 @@
             <span class="dot dot-yellow"></span>
             <span class="dot dot-green"></span>
           </div>
-          <div class="mockup-title">${m.channelTitle}</div>
-          <div style="width: 40px;"></div>
+          <div class="mockup-title">
+            <span>#</span>
+            <span>${m.channelTitle}</span>
+          </div>
+          <div class="mockup-online-chip">
+            <span class="pulsing-dot" style="background:#10b981;"></span>
+            <span>${onlineText}</span>
+          </div>
         </div>
+
         <div class="mockup-body">
           <div class="mockup-alert">
             <div style="display:flex; align-items:center; gap: 0.5rem;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
               <span>${m.alertText}</span>
             </div>
             <span class="alert-badge">${m.alertVector}</span>
@@ -201,7 +251,10 @@
 
           <div class="mockup-chat">
             <div class="chat-msg">
-              <img src="assets/logo.png" alt="FanCord" class="chat-avatar">
+              <div class="chat-avatar-wrap">
+                <img src="assets/logo.png" alt="FanCord" class="chat-avatar">
+                <span class="avatar-status-dot"></span>
+              </div>
               <div class="chat-bubble">
                 <div class="chat-header">
                   <span class="chat-author">${m.chatAuthor}</span>
@@ -211,12 +264,26 @@
                 <p class="chat-text">${m.pinnedMessage}</p>
               </div>
             </div>
+
+            <div class="mockup-typing">
+              <span>${typingStatusText}</span>
+              <span class="typing-dots">
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+              </span>
+            </div>
           </div>
 
           <div class="mockup-features-pills">
             ${m.pills.map(pill => `<span class="mini-pill">${pill}</span>`).join('')}
           </div>
         </div>
+      </div>
+
+      <div class="mockup-floater floater-bottom">
+        <span>🚀</span>
+        <span>${floater2Text}</span>
       </div>
     `;
   }
@@ -228,13 +295,14 @@
     const fanPlugins = window.FAN_PLUGINS.filter(p => p.isFanPlugin);
 
     elExclusiveGrid.innerHTML = '';
-    fanPlugins.forEach(p => {
+    fanPlugins.forEach((p, idx) => {
       const name = currentLang === 'ar' ? (p.nameAr || p.name) : p.name;
       const subName = (currentLang === 'ar' && p.nameAr && p.nameAr !== p.name) ? p.name : '';
       const desc = currentLang === 'ar' ? p.descriptionAr : p.descriptionEn;
 
       const card = document.createElement('div');
-      card.className = 'exclusive-card';
+      card.className = 'exclusive-card reveal-on-scroll';
+      card.style.transitionDelay = `${idx * 0.05}s`;
       card.innerHTML = `
         <div class="exclusive-card-header">
           <div class="exclusive-icon">${getIconSvg(p.icon || 'sparkles')}</div>
@@ -257,7 +325,8 @@
 
     // Attach listeners
     elExclusiveGrid.querySelectorAll('[data-action="copy"]').forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         const pName = btn.getAttribute('data-name');
         copyText(pName, t.catalog.copied);
       });
@@ -271,7 +340,7 @@
     });
   }
 
-  // Render Category Filter Pills
+  // Render Category Pills
   function renderCategoryPills() {
     if (!elCategoryPills || !window.FAN_PLUGINS) return;
     const t = translations[currentLang];
@@ -310,7 +379,7 @@
     });
   }
 
-  // Render Plugins Catalog
+  // Render All Plugins Catalog
   function renderPluginsCatalog() {
     if (!elPluginsGrid || !window.FAN_PLUGINS) return;
     const t = translations[currentLang];
@@ -350,14 +419,15 @@
       return;
     }
 
-    filtered.forEach(p => {
+    filtered.forEach((p, idx) => {
       const name = currentLang === 'ar' ? (p.nameAr || p.name) : p.name;
       const subName = (currentLang === 'ar' && p.nameAr && p.nameAr !== p.name) ? p.name : '';
       const desc = currentLang === 'ar' ? p.descriptionAr : p.descriptionEn;
       const catLabel = t.catalog.categories[p.category] || p.category;
 
       const card = document.createElement('div');
-      card.className = `plugin-card ${p.isFanPlugin ? 'is-vip' : ''}`;
+      card.className = `plugin-card ${p.isFanPlugin ? 'is-vip' : ''} reveal-on-scroll`;
+      card.style.transitionDelay = `${(idx % 12) * 0.03}s`;
       card.innerHTML = `
         <div class="plugin-card-top">
           <div class="plugin-icon-wrap">${getIconSvg(p.icon || 'puzzle')}</div>
@@ -396,6 +466,8 @@
         openPluginModal(pid);
       });
     });
+
+    initCardEffects();
   }
 
   // Plugin Modal
@@ -411,7 +483,7 @@
     const catLabel = t.catalog.categories[p.category] || p.category;
 
     elModal.innerHTML = `
-      <div class="modal-content">
+      <div class="modal-dialog">
         <button class="modal-close" id="modal-close-btn">&times;</button>
         <div class="modal-header">
           <span class="modal-badge ${p.isFanPlugin ? 'vip' : 'badge-pill'}">
@@ -442,7 +514,8 @@
       </div>
     `;
 
-    elModal.classList.add('open');
+    elModal.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
 
     // Attach listeners
     document.getElementById('modal-close-btn').addEventListener('click', closePluginModal);
@@ -453,7 +526,11 @@
   }
 
   function closePluginModal() {
-    if (elModal) elModal.classList.remove('open');
+    if (elModal) {
+      elModal.classList.remove('is-active');
+      elModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
   }
 
   // Render Comparison Table
@@ -496,7 +573,8 @@
     elFaqList.innerHTML = '';
     t.faq.items.forEach((item, idx) => {
       const faqItem = document.createElement('div');
-      faqItem.className = `faq-item ${idx === 0 ? 'active' : ''}`;
+      faqItem.className = `faq-item ${idx === 0 ? 'active' : ''} reveal-on-scroll`;
+      faqItem.style.transitionDelay = `${idx * 0.04}s`;
       faqItem.innerHTML = `
         <button class="faq-question">
           <span>${item.q}</span>
@@ -526,7 +604,53 @@
     });
   }
 
-  // Interactive Particle Canvas Background
+  // Card Mouse Spotlight (Linear-style Subtle Cursor Flashlight)
+  function initCardEffects() {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    const cards = document.querySelectorAll('.exclusive-card, .feature-card, .plugin-card, .download-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--mouse-x', '-500px');
+        card.style.setProperty('--mouse-y', '-500px');
+      });
+    });
+  }
+
+  // Scroll Reveal Observer (Snappy, Natural & Crisp)
+  function initScrollReveal() {
+    const reveals = document.querySelectorAll('.reveal-on-scroll');
+    if (!reveals.length) return;
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -30px 0px',
+        threshold: 0.05
+      });
+
+      reveals.forEach(el => observer.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('is-revealed'));
+    }
+  }
+
+  // Celestial Ambient Starfield & Cursor Glow (Zero Spiderwebs, Ultra-Clean & Relaxing)
   function initParticleCanvas() {
     const canvas = document.getElementById('bg-canvas');
     if (!canvas) return;
@@ -534,58 +658,73 @@
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
+    let mouse = { x: -1000, y: -1000, targetX: -1000, targetY: -1000 };
+
     window.addEventListener('resize', () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
     });
 
-    const particles = [];
-    const count = Math.min(Math.floor((width * height) / 18000), 75);
+    window.addEventListener('mousemove', (e) => {
+      mouse.targetX = e.clientX;
+      mouse.targetY = e.clientY;
+    }, { passive: true });
 
-    for (let i = 0; i < count; i++) {
-      particles.push({
+    window.addEventListener('mouseleave', () => {
+      mouse.targetX = -1000;
+      mouse.targetY = -1000;
+    });
+
+    // Create a calm, elegant starfield
+    const stars = [];
+    const starCount = Math.min(Math.floor((width * height) / 16000), 85);
+
+    for (let i = 0; i < starCount; i++) {
+      stars.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
-        radius: Math.random() * 2 + 1,
-        alpha: Math.random() * 0.6 + 0.2
+        radius: Math.random() * 1.2 + 0.6,
+        baseAlpha: Math.random() * 0.45 + 0.15,
+        twinkleSpeed: Math.random() * 0.02 + 0.008,
+        twinklePhase: Math.random() * Math.PI * 2,
+        driftY: -(Math.random() * 0.08 + 0.03)
       });
     }
 
+    let time = 0;
+
     function animate() {
       ctx.clearRect(0, 0, width, height);
+      time += 0.03;
 
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
+      // Smooth mouse damping
+      mouse.x += (mouse.targetX - mouse.x) * 0.08;
+      mouse.y += (mouse.targetY - mouse.y) * 0.08;
 
-        if (p.x < 0) p.x = width;
-        if (p.x > width) p.x = 0;
-        if (p.y < 0) p.y = height;
-        if (p.y > height) p.y = 0;
+      // Soft ambient light beneath mouse
+      if (mouse.x > 0 && mouse.y > 0) {
+        const glow = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 280);
+        glow.addColorStop(0, 'rgba(139, 92, 246, 0.07)');
+        glow.addColorStop(0.5, 'rgba(99, 102, 241, 0.03)');
+        glow.addColorStop(1, 'transparent');
+        ctx.fillStyle = glow;
+        ctx.fillRect(0, 0, width, height);
+      }
+
+      // Draw peaceful celestial stars
+      for (let i = 0; i < stars.length; i++) {
+        const s = stars[i];
+        s.y += s.driftY;
+        if (s.y < 0) s.y = height;
+
+        // Twinkle calculation
+        const alpha = s.baseAlpha + Math.sin(time * s.twinkleSpeed * 10 + s.twinklePhase) * 0.2;
+        const finalAlpha = Math.max(0.08, Math.min(0.75, alpha));
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(168, 85, 247, ${p.alpha})`;
+        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(216, 180, 254, ${finalAlpha})`;
         ctx.fill();
-
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(139, 92, 246, ${0.2 * (1 - dist / 120)})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
-          }
-        }
       }
 
       requestAnimationFrame(animate);
@@ -596,7 +735,7 @@
 
   // Setup Event Listeners
   function setupListeners() {
-    // Language Toggle
+    // Language Toggle (Desktop)
     if (elBtnLang) {
       elBtnLang.addEventListener('click', () => {
         const nextLang = currentLang === 'ar' ? 'en' : 'ar';
@@ -605,20 +744,96 @@
       });
     }
 
-    // Direct Windows Download Buttons (Obfuscated Trigger)
-    document.querySelectorAll('.btn-download-win, [data-action="download-windows"]').forEach(btn => {
+    // Language Toggle (Mobile Drawer)
+    if (elMobileBtnLang) {
+      elMobileBtnLang.addEventListener('click', () => {
+        const nextLang = currentLang === 'ar' ? 'en' : 'ar';
+        setLanguage(nextLang);
+        closeMobileDrawer();
+        showToast(nextLang === 'ar' ? 'تم تفعيل اللغة العربية' : 'Switched to English', 'languages');
+      });
+    }
+
+    // Smooth scroll down to the bottom download section from top buttons
+    function scrollToDownloadSection() {
+      const downloadSection = document.getElementById('download');
+      if (downloadSection) {
+        downloadSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        closeMobileDrawer();
+
+        const dlCard = downloadSection.querySelector('.download-card');
+        if (dlCard) {
+          dlCard.classList.remove('highlight-pulse');
+          void dlCard.offsetWidth; // trigger reflow
+          dlCard.classList.add('highlight-pulse');
+          setTimeout(() => dlCard.classList.remove('highlight-pulse'), 2200);
+        }
+      }
+    }
+
+    // Top download buttons trigger smooth scroll down
+    document.querySelectorAll('#hero-btn-download, #mobile-btn-download, .btn-hero-dl, .mobile-dl-btn, a[href="#download"]').forEach(btn => {
       btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        scrollToDownloadSection();
+      });
+    });
+
+    // The bottom download button is the ONLY one that actually downloads the file
+    const elMainDownloadBtn = document.getElementById('btn-main-download') || document.querySelector('[data-action="download-windows"]');
+    if (elMainDownloadBtn) {
+      elMainDownloadBtn.addEventListener('click', (e) => {
         e.preventDefault();
         initiateWindowsDownload();
       });
+    }
+
+    // Mobile menu toggle
+    if (elMenuToggle) {
+      elMenuToggle.addEventListener('click', () => {
+        const isOpen = elMobileDrawer && elMobileDrawer.classList.contains('is-open');
+        if (isOpen) {
+          closeMobileDrawer();
+        } else {
+          openMobileDrawer();
+        }
+      });
+    }
+
+    // Mobile drawer close button & backdrop
+    if (elMobileDrawerClose) {
+      elMobileDrawerClose.addEventListener('click', closeMobileDrawer);
+    }
+    if (elMobileDrawerBackdrop) {
+      elMobileDrawerBackdrop.addEventListener('click', closeMobileDrawer);
+    }
+
+    // Close mobile drawer when clicking any mobile nav link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', closeMobileDrawer);
     });
+
+    // Scroll-to-top button
+    if (elScrollToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 350) {
+          elScrollToTop.classList.add('is-visible');
+        } else {
+          elScrollToTop.classList.remove('is-visible');
+        }
+      }, { passive: true });
+
+      elScrollToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
 
     // Search Input
     if (elSearchInput) {
       elSearchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value;
         if (elSearchClear) {
-          elSearchClear.style.display = searchQuery ? 'block' : 'none';
+          elSearchClear.style.display = searchQuery ? 'flex' : 'none';
         }
         renderPluginsCatalog();
       });
@@ -644,10 +859,11 @@
       });
     }
 
-    // Escape key closes modal
+    // Escape key closes modal & mobile drawer
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closePluginModal();
+        closeMobileDrawer();
       }
     });
 
@@ -660,27 +876,7 @@
           elNavbar.classList.remove('scrolled');
         }
       }
-    });
-
-    // Mobile menu toggle
-    const elMenuToggle = document.getElementById('menu-toggle');
-    const elNavLinks = document.getElementById('nav-links');
-    if (elMenuToggle && elNavLinks) {
-      elMenuToggle.addEventListener('click', () => {
-        const isOpen = elNavLinks.style.display === 'flex';
-        elNavLinks.style.display = isOpen ? 'none' : 'flex';
-        if (!isOpen) {
-          elNavLinks.style.flexDirection = 'column';
-          elNavLinks.style.position = 'absolute';
-          elNavLinks.style.top = '76px';
-          elNavLinks.style.left = '0';
-          elNavLinks.style.right = '0';
-          elNavLinks.style.background = 'rgba(12, 10, 26, 0.98)';
-          elNavLinks.style.padding = '1.5rem';
-          elNavLinks.style.borderBottom = '1px solid var(--border)';
-        }
-      });
-    }
+    }, { passive: true });
   }
 
   // Initialize
@@ -688,6 +884,7 @@
     setLanguage(currentLang);
     initParticleCanvas();
     setupListeners();
+    initScrollReveal();
   }
 
   document.addEventListener('DOMContentLoaded', init);

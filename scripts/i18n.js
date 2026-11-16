@@ -123,7 +123,7 @@ const translations = {
       badge: "تثبيت فوري • لنظام Windows فقط",
       title: "تحميل أداة FanCord لنظام Windows",
       subtitle: "نسخة تنفيذية جاهزة للتثبيت الفوري بنقرة زر واحدة دون الحاجة لأي أوامر أو إعدادات برمجية معقدة.",
-      btnDownloadNow: "تحميل Fan-Discord.exe لنظام Windows",
+      btnDownloadNow: "تحميل FanCord لنظام Windows",
       osNote: "متوافق مع أنظمة Windows 10 و Windows 11 (64-bit)",
       features: [
         "تثبيت تلقائي وفوري بنقرة واحدة",
@@ -164,7 +164,7 @@ const translations = {
         },
         {
           q: "كيف أقوم بتثبيت FanCord على جهازي؟",
-          a: "ببساطة قم بتحميل ملف التثبيت المباشر Fan-Discord.exe لنظام Windows وافتحه، وسيتم تثبيت وحقن الأداة تلقائياً في ديسكورد بنقرة واحدة دون الحاجة لأي أوامر."
+          a: "ببساطة قم بتحميل FanCord لنظام Windows وافتحه، وسيتم تثبيت وحقن الأداة تلقائياً في ديسكورد بنقرة واحدة دون الحاجة لأي أوامر معقدة."
         },
         {
           q: "كيف أقوم بتفعيل واجهة اللغة العربية في FanCord؟",
@@ -310,7 +310,7 @@ const translations = {
       badge: "Instant Setup • Windows Exclusive",
       title: "Download FanCord for Windows",
       subtitle: "Standalone executable installer ready for instant setup in a single click without any command-line steps.",
-      btnDownloadNow: "Download Fan-Discord.exe for Windows",
+      btnDownloadNow: "Download FanCord for Windows",
       osNote: "Compatible with Windows 10 & Windows 11 (64-bit)",
       features: [
         "Instant one-click automated setup",
@@ -351,7 +351,7 @@ const translations = {
         },
         {
           q: "How do I install FanCord on my PC?",
-          a: "Simply download the standalone Fan-Discord.exe installer for Windows and launch it. It will automatically inject and configure FanCord in your Discord client in one click."
+          a: "Simply download FanCord for Windows and launch it. It will automatically inject and configure FanCord in your Discord client in one click."
         },
         {
           q: "How do I activate the Arabic UI in FanCord?",

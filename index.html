@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>FanCord — تعديل ديسكورد الأقوى بتعريب كامل وإضافات حصرية</title>
   <meta name="description" content="موقع FanCord الرسمي: تعديل حديث وخفيف لتطبيق ديسكورد مع دعم كامل للغة العربية (RTL) وحزمة إضافات FanPlugins الحصرية وأكثر من 490 إضافة جاهزة.">
   <link rel="icon" type="image/png" href="assets/logo.png">
@@ -23,6 +23,7 @@
 
   <!-- Background Interactive Particles & Ambient Lighting -->
   <canvas id="bg-canvas"></canvas>
+  <div class="bg-grid-pattern"></div>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
@@ -50,17 +51,54 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           <span id="lang-text">English</span>
         </button>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">☰</button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line line-1"></span>
+          <span class="hamburger-line line-2"></span>
+          <span class="hamburger-line line-3"></span>
+        </button>
       </div>
     </div>
   </header>
 
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <div class="brand">
+        <img src="assets/logo.png" alt="FanCord Logo" class="brand-logo">
+        <span class="brand-text">FanCord</span>
+        <span class="brand-badge">v3.0</span>
+      </div>
+      <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close menu">✕</button>
+    </div>
+
+    <nav class="mobile-nav-links">
+      <a href="#features" class="mobile-nav-link" data-i18n="nav.features">المميزات</a>
+      <a href="#exclusive" class="mobile-nav-link" data-i18n="nav.exclusive">الإضافات الحصرية</a>
+      <a href="#catalog" class="mobile-nav-link" data-i18n="nav.plugins">دليل الإضافات</a>
+      <a href="#download" class="mobile-nav-link" data-i18n="nav.download">التحميل للويندوز</a>
+      <a href="#compare" class="mobile-nav-link" data-i18n="nav.compare">المقارنة</a>
+      <a href="#faq" class="mobile-nav-link" data-i18n="nav.faq">الأسئلة الشائعة</a>
+    </nav>
+
+    <div class="mobile-drawer-footer">
+      <a href="#download" class="btn-primary mobile-dl-btn" id="mobile-btn-download">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+        <span data-i18n="hero.btnDownload">تحميل لنظام Windows</span>
+      </a>
+      <button class="btn-lang mobile-lang-btn" id="mobile-btn-lang">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span class="mobile-lang-text">English</span>
+      </button>
+    </div>
+  </aside>
+
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="container hero-grid">
-      <div class="hero-content">
+      <div class="hero-content reveal-on-scroll">
         <div class="badge-pill">
-          <span>✨</span>
+          <span class="pulsing-dot"></span>
           <span data-i18n="hero.badge">الإصدار الأحدث لعام 2026 • أداء فائق وسرعة قصوى</span>
         </div>
         <h1 class="hero-title">
@@ -72,10 +110,10 @@
         </p>
 
         <div class="hero-cta">
-          <button class="btn-primary btn-download-win">
+          <a href="#download" class="btn-primary btn-hero-dl" id="hero-btn-download">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
             <span data-i18n="hero.btnDownload">تحميل لنظام Windows</span>
-          </button>
+          </a>
           <a href="#catalog" class="btn-secondary">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             <span data-i18n="hero.btnBrowse">استكشاف الإضافات (+490)</span>
@@ -103,7 +141,7 @@
       </div>
 
       <!-- Hero Visual / Live Discord Client Mockup -->
-      <div class="hero-visual" id="mockup-container">
+      <div class="hero-visual reveal-on-scroll" id="mockup-container">
         <!-- Rendered dynamically by app.js -->
       </div>
     </div>
@@ -112,7 +150,7 @@
   <!-- Features Section -->
   <section class="section" id="features">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal-on-scroll">
         <div class="badge-pill" data-i18n="features.badge">لماذا تختار FanCord؟</div>
         <h2 class="section-title" data-i18n="features.title">مميزات صُنعت لتغيير تجربتك في ديسكورد</h2>
         <p class="section-subtitle" data-i18n="features.subtitle">
@@ -129,7 +167,7 @@
   <!-- Exclusive FanPlugins Section -->
   <section class="section exclusive-section" id="exclusive">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal-on-scroll">
         <div class="badge-pill vip" data-i18n="exclusive.badge">إضافات FanCord الحصرية • Exclusive FanPlugins</div>
         <h2 class="section-title" data-i18n="exclusive.title">إضافات حصرية خاصة بـ FanCord</h2>
         <p class="section-subtitle" data-i18n="exclusive.subtitle">
@@ -146,7 +184,7 @@
   <!-- All Plugins Catalog Section -->
   <section class="section" id="catalog">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal-on-scroll">
         <div class="badge-pill" data-i18n="catalog.badge">المكتبة الكاملة للإضافات</div>
         <h2 class="section-title" data-i18n="catalog.title">دليل جميع إضافات FanCord (أكثر من 490 إضافة)</h2>
         <p class="section-subtitle" data-i18n="catalog.subtitle">
@@ -154,11 +192,11 @@
         </p>
       </div>
 
-      <div class="catalog-controls">
+      <div class="catalog-controls reveal-on-scroll">
         <!-- Search Bar -->
         <div class="search-box-wrapper">
           <span class="search-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="2" y1="21" x2="16.65" y2="16.65"/></svg>
           </span>
           <input type="text" id="search-input" class="search-input" placeholder="ابحث عن أي إضافة بالاسم أو الوصف (عربي / English)...">
           <button id="search-clear" class="search-clear" title="Clear Search">✕</button>
@@ -186,7 +224,7 @@
   <!-- Dedicated Windows Download Section -->
   <section class="section" id="download">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal-on-scroll">
         <div class="badge-pill" data-i18n="download.badge">تثبيت فوري • لنظام Windows فقط</div>
         <h2 class="section-title" data-i18n="download.title">تحميل أداة FanCord لنظام Windows</h2>
         <p class="section-subtitle" data-i18n="download.subtitle">
@@ -194,18 +232,19 @@
         </p>
       </div>
 
-      <div class="download-box-wrapper">
+      <div class="download-box-wrapper reveal-on-scroll">
         <div class="download-card">
+          <div class="download-card-glow"></div>
           <div class="download-icon-wrap">
             <svg width="52" height="52" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
           </div>
           
-          <h3 class="download-card-title">Fan-Discord.exe</h3>
+          <h3 class="download-card-title">FanCord</h3>
           <p class="download-os-note" data-i18n="download.osNote">متوافق مع أنظمة Windows 10 و Windows 11 (64-bit)</p>
           
-          <button class="btn-primary btn-download-win btn-large-dl" data-action="download-windows">
+          <button class="btn-primary btn-large-dl" id="btn-main-download" data-action="download-windows">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span data-i18n="download.btnDownloadNow">تحميل Fan-Discord.exe لنظام Windows</span>
+            <span data-i18n="download.btnDownloadNow">تحميل FanCord لنظام Windows</span>
           </button>
 
           <div class="download-features-list">
@@ -230,7 +269,7 @@
   <!-- Comparison Section -->
   <section class="section" id="compare">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal-on-scroll">
         <div class="badge-pill" data-i18n="compare.badge">مقارنة شاملة</div>
         <h2 class="section-title" data-i18n="compare.title">قارن بين FanCord والبدائل الأخرى</h2>
         <p class="section-subtitle" data-i18n="compare.subtitle">
@@ -238,7 +277,12 @@
         </p>
       </div>
 
-      <div class="table-wrapper">
+      <div class="table-wrapper reveal-on-scroll">
+        <div class="table-scroll-hint">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          <span>اسحب الجدول لليمين أو اليسار للمقارنة / Swipe table horizontally</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
         <table class="compare-table">
           <thead>
             <tr>
@@ -259,7 +303,7 @@
   <!-- FAQ Section -->
   <section class="section" id="faq">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal-on-scroll">
         <div class="badge-pill" data-i18n="faq.badge">الأسئلة الشائعة</div>
         <h2 class="section-title" data-i18n="faq.title">كل ما قد ترغب في معرفته</h2>
         <p class="section-subtitle" data-i18n="faq.subtitle">
@@ -267,7 +311,7 @@
         </p>
       </div>
 
-      <div class="faq-list" id="faq-list">
+      <div class="faq-list reveal-on-scroll" id="faq-list">
         <!-- Rendered dynamically by app.js -->
       </div>
     </div>
@@ -276,8 +320,8 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid" style="grid-template-columns: 2fr 1fr;">
-        <div>
+      <div class="footer-grid">
+        <div class="footer-brand-col">
           <a href="#" class="brand">
             <img src="assets/logo.png" alt="FanCord Logo" class="brand-logo">
             <span class="brand-text">FanCord</span>
@@ -288,7 +332,7 @@
           </p>
         </div>
 
-        <div>
+        <div class="footer-links-col">
           <h4 class="footer-col-title" data-i18n="footer.linksTitle">روابط سريعة</h4>
           <ul class="footer-links">
             <li><a href="#features" class="footer-link" data-i18n="nav.features">المميزات</a></li>
@@ -304,9 +348,17 @@
         <div data-i18n="footer.allRights">
           جميع الحقوق محفوظة © 2026 FanCord
         </div>
+        <div class="footer-version-tag">
+          FanCord v3.0 • Production Build
+        </div>
       </div>
     </div>
   </footer>
+
+  <!-- Floating Scroll To Top Button -->
+  <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top" title="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 
   <!-- Modal for Plugin Details -->
   <div class="modal-overlay" id="plugin-modal">
