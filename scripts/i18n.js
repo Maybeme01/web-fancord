@@ -5,7 +5,7 @@ const translations = {
       features: "المميزات",
       exclusive: "الإضافات الحصرية",
       plugins: "دليل الإضافات",
-      install: "طريقة التثبيت",
+      download: "التحميل للويندوز",
       compare: "المقارنة",
       faq: "الأسئلة الشائعة",
       languageToggle: "English"
@@ -15,7 +15,7 @@ const translations = {
       titleHighlight: "FanCord",
       titleSuffix: "تعديل ديسكورد الأقوى بتعريب كامل وإضافات حصرية",
       description: "تعديل حديث، فائق السرعة، وخفيف الموارد لتطبيق ديسكورد مع دعم كامل للغة العربية (RTL) وحزمة حصرية من إضافات FanPlugins المطورة لتمنحك أفضل تجربة ممكنة.",
-      btnInstall: "تثبيت فوري الآن",
+      btnDownload: "تحميل لنظام Windows",
       btnBrowse: "استكشاف الإضافات (+490)",
       stats: {
         totalPlugins: "إضافة متكاملة",
@@ -119,22 +119,17 @@ const translations = {
       category: "الفئة:",
       close: "إغلاق النافذة"
     },
-    install: {
-      badge: "سهولة وسرعة التثبيت",
-      title: "ابدأ استخدام FanCord في ثوانٍ",
-      subtitle: "ثبّت FanCord تلقائياً عبر سطر الأوامر أو ابنِه من المصدر لنظام Windows أو macOS أو Linux.",
-      tabs: {
-        quick: "⚡ التثبيت السريع (Inject)",
-        stable: "🟢 Discord Stable",
-        canary: "🟡 Discord Canary",
-        source: "🛠️ البناء من المصدر"
-      },
-      copyCommand: "نسخ الأمر",
-      copiedCommand: "تم النسخ بنجاح!",
-      prereqTitle: "المتطلبات الأساسية:",
-      prereqNode: "Node.js الإصدار 18 أو أحدث",
-      prereqPnpm: "مدير الحزم pnpm (npm i -g pnpm)",
-      prereqGit: "برنامج Git لاستنساخ الحزم"
+    download: {
+      badge: "تثبيت فوري • لنظام Windows فقط",
+      title: "تحميل أداة FanCord لنظام Windows",
+      subtitle: "نسخة تنفيذية جاهزة للتثبيت الفوري بنقرة زر واحدة دون الحاجة لأي أوامر أو إعدادات برمجية معقدة.",
+      btnDownloadNow: "تحميل Fan-Discord.exe لنظام Windows",
+      osNote: "متوافق مع أنظمة Windows 10 و Windows 11 (64-bit)",
+      features: [
+        "تثبيت تلقائي وفوري بنقرة واحدة",
+        "تحديثات ذكية ومستمرة لميزات ديسكورد",
+        "خفيف جداً وخالي من أي استهلاك للذاكرة أو المعالج"
+      ]
     },
     compare: {
       badge: "مقارنة شاملة",
@@ -168,6 +163,10 @@ const translations = {
           a: "FanCord هو تعديل عميل ديسكورد فائق السرعة مبني بأحدث التقنيات مع دعم كامل ومخصص للغة العربية واتجاه RTL، ويتميز بحزمة إضافات حصرية خاصة (FanPlugins) مثل كشف الفيك ديفن ومسجل الرومات وتحكم OBS التي لن تجدها في أي تعديل آخر."
         },
         {
+          q: "كيف أقوم بتثبيت FanCord على جهازي؟",
+          a: "ببساطة قم بتحميل ملف التثبيت المباشر Fan-Discord.exe لنظام Windows وافتحه، وسيتم تثبيت وحقن الأداة تلقائياً في ديسكورد بنقرة واحدة دون الحاجة لأي أوامر."
+        },
+        {
           q: "كيف أقوم بتفعيل واجهة اللغة العربية في FanCord؟",
           a: "بمجرد تثبيت FanCord، توجه إلى إعدادات ديسكورد > قسم FanCord / ArabicUI، ثم قم بتفعيل الإضافة واختيار الخط المفضل لديك ثم أعد تشغيل التطبيق مرة واحدة لتطبيق المحاذاة الكاملة من اليمين لليسار."
         },
@@ -178,10 +177,6 @@ const translations = {
         {
           q: "هل استخدام FanCord آمن لحسابي؟",
           a: "نعم، FanCord يعمل بالكامل محلياً على جهازك على مستوى العميل ولا يطلب أو يسجل بيانات دخولك خارج تطبيق ديسكورد الرسمي."
-        },
-        {
-          q: "هل يعمل FanCord على إصدارات Discord Stable وCanary؟",
-          a: "نعم بالتأكيد! يدعم FanCord التثبيت السلس على كلاً من Discord Stable وDiscord Canary وDiscord PTB بالإضافة لنسخة المتصفح."
         }
       ]
     },
@@ -197,7 +192,7 @@ const translations = {
       features: "Features",
       exclusive: "Exclusive Plugins",
       plugins: "Plugins Catalog",
-      install: "Installation",
+      download: "Download Windows",
       compare: "Comparison",
       faq: "FAQ",
       languageToggle: "العربية"
@@ -207,7 +202,7 @@ const translations = {
       titleHighlight: "FanCord",
       titleSuffix: "The Ultimate Discord Client Mod with Native Arabic & Exclusive Plugins",
       description: "A modern, lightweight, and ultra-fast Discord client mod featuring first-class Arabic RTL support, curated typography, and an exclusive suite of FanPlugins developed to give you the best possible experience.",
-      btnInstall: "Quick Install Now",
+      btnDownload: "Download for Windows",
       btnBrowse: "Browse 490+ Plugins",
       stats: {
         totalPlugins: "Integrated Plugins",
@@ -311,22 +306,17 @@ const translations = {
       category: "Category:",
       close: "Close"
     },
-    install: {
-      badge: "Frictionless Setup",
-      title: "Get Started with FanCord in Seconds",
-      subtitle: "Install FanCord automatically via simple commands or build it straight from source on Windows, macOS, or Linux.",
-      tabs: {
-        quick: "⚡ Quick Inject",
-        stable: "🟢 Discord Stable",
-        canary: "🟡 Discord Canary",
-        source: "🛠️ Build from Source"
-      },
-      copyCommand: "Copy Command",
-      copiedCommand: "Copied to Clipboard!",
-      prereqTitle: "Prerequisites:",
-      prereqNode: "Node.js v18 or newer",
-      prereqPnpm: "pnpm package manager (npm i -g pnpm)",
-      prereqGit: "Git installed on your system"
+    download: {
+      badge: "Instant Setup • Windows Exclusive",
+      title: "Download FanCord for Windows",
+      subtitle: "Standalone executable installer ready for instant setup in a single click without any command-line steps.",
+      btnDownloadNow: "Download Fan-Discord.exe for Windows",
+      osNote: "Compatible with Windows 10 & Windows 11 (64-bit)",
+      features: [
+        "Instant one-click automated setup",
+        "Seamless integration with your Discord client",
+        "Ultra-lightweight with zero resource overhead"
+      ]
     },
     compare: {
       badge: "Feature Breakdown",
@@ -360,6 +350,10 @@ const translations = {
           a: "FanCord is a cutting-edge, ultra-fast Discord client modification built with native Arabic & RTL support, accompanied by a signature suite of exclusive plugins (FanPlugins) including Fake Deafen detection, OBS integration, TikTok sidebar, and Voice Room recording."
         },
         {
+          q: "How do I install FanCord on my PC?",
+          a: "Simply download the standalone Fan-Discord.exe installer for Windows and launch it. It will automatically inject and configure FanCord in your Discord client in one click."
+        },
+        {
           q: "How do I activate the Arabic UI in FanCord?",
           a: "Once FanCord is installed, open Discord Settings > FanCord / ArabicUI section. Enable the plugin, select your preferred Arabic font, and restart Discord once to enjoy a seamless right-to-left interface."
         },
@@ -370,10 +364,6 @@ const translations = {
         {
           q: "Is using FanCord safe for my Discord account?",
           a: "Yes. FanCord operates entirely client-side on your device and does not send or record your credentials outside of official Discord."
-        },
-        {
-          q: "Does FanCord support Discord Stable and Canary?",
-          a: "Yes! FanCord works seamlessly with Discord Stable, Canary, PTB, and can also be injected as a browser userscript."
         }
       ]
     },

